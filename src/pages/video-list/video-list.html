@@ -1,0 +1,44 @@
+<!--
+  Generated template for the VideoListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>短视频</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="m-video-list">
+    <ul class="clearfix">
+      <li *ngFor = "let video of videoList" (click)="goVideo(video)">
+        <div class="m-video-box">
+          <div class="m-video-img"><img src="{{video.smallPic}}"><span>券:{{video.couponMoney}}</span></div>
+          <div class="m-video-info clearfix">
+            <h3>{{video.goodsName}}</h3>
+            <p><span float-left><i color="orange">{{video.endPrice}}</i>券后</span><span float-right>已售:{{video.sales}}</span></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--<ion-list no-margin>
+    <ion-item no-lines class="m-list-grid">
+      <img src="../../assets/imgs/cp1.jpg">
+      <h2>goodsName</h2>
+      <span>优惠券:fs</span>
+      <p><span item-start>券后价 <i color="orange">21元</i></span><span item-end>月销:sales</span></p>
+    </ion-item>
+    <ion-item no-lines class="m-list-grid">
+      <img src="../../assets/imgs/cp1.jpg">
+      <h2>goodsName</h2>
+      <span>优惠券:fs</span>
+      <p><span item-start>券后价 <i color="orange">21元</i></span><span item-end>月销:sales</span></p>
+    </ion-item>
+  </ion-list>-->
+</ion-content>

@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ShareProductPage</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col no-padding text-left>
+        选择图片
+      </ion-col>
+      <ion-col no-padding text-right>
+        已选0张
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-scroll scrollX="true" no-padding class="m-scroll-wrap">
+    <ul class="m-playbill" radio-group>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="0" cheched></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="1"></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="2"></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="3"></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="4"></ion-radio></li>
+    </ul>
+  </ion-scroll>
+  <div class="m-edit-share">
+    <p>编辑分享文案</p>
+    <div>
+      <textarea name="" id="" cols="30" rows="10">fdsfdsfdsfdsfsdfs</textarea>
+    </div>
+    <p class="clearfix"><span float-left>请不要修改大括号之间的文字</span><span float-right>仅复制分享文案</span></p>
+  </div>
+  <div class="m-share-method">
+    <p text-center>图文分享到</p>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          微信好友
+        </ion-col>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          朋友圈
+        </ion-col>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          新浪微博
+        </ion-col>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          QQ
+        </ion-col>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          QQ空间
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+ <!-- <img class="shareImg" src="{{imgUrl}}"/>
+  <p>编辑分享文案</p>
+  <label id="imgContent">{{previewContent}}</label>
+
+  <button ion-button end (click)="editHandlerClick()">编辑模板</button>
+
+  <P> </P>
+  <br/>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col no-padding >
+        请不要修改大括号之间的文字
+      </ion-col>
+      <ion-col no-padding text-center>
+        <button ion-button end (click)="copyHandlerClick()">仅复制分享文案</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <button ion-button color="secondary" (click)="shareWxPengyouquan()">朋友圈</button>
+  <button ion-button color="secondary" (click)="shareWxFriend()">微信好友</button>
+  <button ion-button color="secondary" (click)="shareWeibo()">微博</button>
+  <button ion-button color="secondary" (click)="shareQQFriend()">QQ</button>
+  <button ion-button color="secondary" (click)="shareQQzone()">QQ空间</button>-->
+
+</ion-content>

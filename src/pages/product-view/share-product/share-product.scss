@@ -1,0 +1,69 @@
+page-share-product {
+  ul{
+    margin:0;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+  }
+  .clearfix:after{
+    overflow: hidden;
+    visibility: hidden;
+    content: '.';
+    clear: both;
+  }
+  ion-scroll{
+    height: 12rem;
+  }
+  .m-scroll-wrap .scroll-content{
+    padding: 0 !important;
+  }
+  .radio-ios{
+    background: #ccc;
+    border-radius: 50%;
+    padding: 0 .25rem;
+    position: absolute;
+    right: 3px;
+    top:3px;
+  }
+  .m-playbill{
+    margin-top: 10px;
+    width:calc(11rem * 5);
+  }
+  .m-playbill li{
+    width: 10rem;
+    float: left;
+    margin-right: 1rem;
+    text-align: center;
+    position: relative;
+  }
+  .m-playbill li img{
+    margin-bottom: 1rem;
+  }
+  .m-share-method{
+    margin-top: 5px;
+  }
+  .m-icon-share{
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .m-icon-weixin{
+    background: url("../../assets/imgs/weixin@2x.png");
+    background-size: 100%
+  }
+  .m-share-method .col{
+    text-align: center;
+  }
+  .m-edit-share textarea{
+    width: 100%;
+  }
+  .m-share-method{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}

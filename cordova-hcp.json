@@ -1,0 +1,7 @@
+{
+  "name": "myAPP",
+  "ios_identifier": "",
+  "android_identifier": "",
+  "update": "start",
+  "content_url": "http://192.168.1.162:31284"
+}

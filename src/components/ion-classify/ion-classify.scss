@@ -1,0 +1,46 @@
+ion-classify {
+  .border-bottom{
+    border-bottom: 1px solid #eee;
+  }
+  .border-right{
+    border-right: 1px solid #eee;
+  }
+  .grid{
+    padding:0;
+  }
+  .col{
+    background: #fff;
+  }
+  .col h3{
+    font-size: 1.4rem;
+    margin: 5px auto;
+    color: orange;
+  }
+  .col p{
+    font-size: 1.2rem;
+    color: #666;
+    margin:0 0 10px 0;
+  }
+  .classify-2 .col:first-child{
+    border-right: 1px solid #eee;
+  }
+  .classify-3 .col{
+    text-align: center;
+    border-right: 1px solid #eee;
+  }
+  .classify-3 .col:last-child{
+    border: none;
+  }
+  .classify-4 > .row > .col:nth-child(2){
+    padding: 0;
+  }
+  .classify-5 > .row > .col:nth-child(2){
+    padding: 0;
+  }
+  .img-right{
+    text-align: right;
+  }
+  .col-first{
+    max-width: 40%;
+  }
+}

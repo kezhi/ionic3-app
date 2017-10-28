@@ -1,0 +1,79 @@
+page-user {
+  .clearfix:after{
+    overflow: hidden;
+    visibility: hidden;
+    content: '.';
+    clear: both;
+  }
+  .m-user-wrap{
+    background: url('../../assets/imgs/wdbg@3x.png');
+    height: 12em;
+    color: #fff;
+  }
+  .m-user-message{
+    text-align: right;
+  }
+  .m-user-message ion-icon{
+    font-size: 3em;
+  }
+  .m-user-avatar{
+    margin-right: 1em;
+  }
+  .m-user-avatar img{
+    width: 6em;
+    height: 6em;
+  }
+  .m-user-info{
+    color: #fff;
+  }
+  .m-user-info p{
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+  }
+  .m-user-info .user-type{
+    border: 1px solid #fff;
+    border-radius: 14px;
+    padding: 0px 5px;
+    line-height: 1.4;
+    display: inline-block;
+  }
+  .m-user-wrap{
+    position: relative;
+  }
+  .m-user-item1{
+    width: 100%;
+    margin-left: -1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .m-user-item1 .col{
+    background: rgba(0,0,0,0.2);
+    margin-left: 1px;
+    text-align: center;
+    height: 3.3em;
+  }
+  .m-user-item1 .col span{
+    display: block;
+    padding-top: .2em;
+  }
+  .m-user-item2{
+    width: 100%;
+    margin-left: -1px;
+    margin-top: 5px;
+  }
+  .m-user-item2 .col{
+    background:#fff;
+    margin-left: 1px;
+    text-align: center;
+    height: 5em;
+  }
+  .m-user-item2 .col span{
+    display: block;
+    padding-top: .6em;
+  }
+  .m-user-item2 .col span img{
+    width: 2.3em;
+  }
+}

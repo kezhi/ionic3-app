@@ -1,0 +1,40 @@
+page-taoqianggou {
+  .tqg-head{
+    background: #2b3642;
+    color: #fff;
+  }
+  .tqg-head .col{
+    text-align: center;
+    font-size: 1.6rem;
+  }
+  .tqg-head .col span{
+    display: block;
+    font-size: 1.4rem;
+  }
+  .tqg-head .col.on{
+    background: pink;
+    border-radius: 3px;
+  }
+  ion-content{
+    top:52px;
+  }
+  .label-ios{
+    font-size: 1.4rem;
+  }
+  .m-list-thumbnail .list-order{
+    color: pink;
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.6rem;
+  }
+  .m-list-thumbnail .list-order-price{
+    display: block;
+  }
+  .m-list-thumbnail .buy-btn-style{
+    background: pink;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #fff;
+    display: block;
+  }
+}

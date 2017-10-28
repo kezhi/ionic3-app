@@ -1,17 +1,39 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar padding class="home-search-bar">
+    <ion-input type="text" placeholder="请输入关键词搜索" (click)="pushSearch()"></ion-input>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div class="home-focus">
+    <ion-slides autoplay="2000" loop="true" pager="true" (ionSlideDidChange)="slideChanged()" *ngIf = "bannerListLen >= 1">
+      <ion-slide *ngFor="let banner of bannerList" (click)="pushAdv(banner)">
+        <img src="http://img.jfapps.com/{{banner.img}}" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <!-- 功能导航 -->
+  <div class="recomand-nav">
+    <span *ngFor="let mainNav of mainNavs" (click)="pushList(mainNav)">
+      <img src="http://img.jfapps.com/{{mainNav.img}}" alt="">
+      <h2>{{mainNav.title}}</h2>
+    </span>
+  </div>
+  <!--分类模块-->
+  <div class="mtblank">
+    <ion-classify [classifyArr]="classifyArr" [classifyStyle]="classifyStyle"></ion-classify>
+  </div>
+
+  <div class="product-list">
+    <div class="product-list-title">精品推荐</div>
+    <!--<ul>
+      <li><img src="assets/imgs/cp1.jpg" alt=""><h3>精品牛仔裤</h3><p><span class="pull-right">月销754</span><span>券后价: <i> 54.8元</i></span></p></li>
+    </ul>-->
+    <ion-products [products]="products" [goodsListStyle]="goodsListStyle"></ion-products>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
 </ion-content>

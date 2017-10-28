@@ -1,0 +1,25 @@
+page-cagegory {
+  .text-ios-light{
+    color:#333;
+  }
+  /*.tab-buttons-container{
+    overflow-x:scroll !important;width:100% !important;
+    -webkit-overflow-scrolling:touch;
+  }
+  .tab-buttons{
+    transition:all 200ms ease-out!important;
+  }
+  */
+  .m-category .m-category-item{
+    width: 48%;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .m-category .m-category-item .item-ios{
+    border-radius: 5px;
+  }
+  .m-category .m-category-item .item-ios.item-block .item-inner{
+    border:none;
+  }
+}

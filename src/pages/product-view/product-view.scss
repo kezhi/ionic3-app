@@ -1,0 +1,60 @@
+page-product-view {
+  .clearfix:after{
+    overflow: hidden;
+    visibility: hidden;
+    content: '.';
+    clear: both;
+  }
+  .view-focus{
+    height:400px;
+  }
+  .view-focus img{
+    height:400px;
+  }
+  .view-info{
+    background: #fff;
+  }
+  .view-title{
+    font-size: 16px;
+
+  }
+  .m-price{
+    color: red;
+    font-size: 24px;
+  }
+  .m-old-price{
+    text-decoration: line-through;
+    color: #666;
+  }
+  .m-coupon{
+    font-size: 12px;
+    background: orangered;
+    margin-left: 10px;
+    color: #fff;
+    padding: 2px 5px;
+    vertical-align: super
+  }
+  .view-bottom{
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+    font-size: 18px;
+    color: #fff;
+  }
+  .view-btn-feedback{
+    color: #333;
+  }
+  .view-btn-share{
+    background: #df5000;
+  }
+  .view-btn-getcoupon{
+    background: red;
+  }
+  .view-details-bar{
+    background: #fff;
+    line-height: 44px;
+    padding: 0 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

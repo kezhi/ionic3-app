@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      分类
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="m-category">
+    <div class="m-category-item" *ngFor="let category of categoryList">
+      <ion-item (click)="pushList(category)">
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/{{category.img}}">
+        </ion-avatar>
+        <p>{{category.des}}</p>
+        <h2>{{category.name}}</h2>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

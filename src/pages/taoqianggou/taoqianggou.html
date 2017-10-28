@@ -1,0 +1,35 @@
+<!--
+  Generated template for the TaoqianggouPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>淘抢购</ion-title>
+  </ion-navbar>
+  <ion-grid class="tqg-head">
+    <ion-row>
+      <ion-col *ngFor="let live of liveIndex" [ngClass]="{'on': live.ifLiving==1}" (click)="select(live)">{{live.name}} <span>{{live.ifLivingName}}</span></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content>
+
+  <!--<div *ngFor="let product of products">{{good.goodsName}}</div>-->
+  <ion-list no-margin class="m-list-thumbnail">
+    <ion-item *ngFor="let product of products" (click)="goDetails(product)">
+      <ion-thumbnail item-start>
+        <img src="{{product.smallPic}}">
+      </ion-thumbnail>
+      <h2>{{product.goodsName}}</h2>
+      <p><span float-left>天猫价：{{product.price}}元</span><span float-right>已抢:{{product.sales}}</span></p>
+      <h3>券后价 <span color="orange">{{product.endPrice}}元</span><span>包邮</span></h3>
+      <div class="list-order" item-end>下单立省 <span class="list-order-price">{{product.couponMoney}}</span><span class="buy-btn-style">马上抢</span></div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

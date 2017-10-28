@@ -1,0 +1,13 @@
+page-about {
+  .segment-ios .segment-button{
+    border:none;
+    color: #333;
+  }
+  .segment-ios .segment-button:first-of-type,.segment-ios .segment-button:last-of-type{
+    border-radius: 0px;
+  }
+  .segment-ios .segment-button:hover:not(.segment-activated){
+    background: none;
+    border-bottom: 2px solid orange;
+  }
+}

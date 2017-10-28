@@ -1,0 +1,51 @@
+<!--
+  Generated template for the ProductViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>商品详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <div class="view-focus">
+    <ion-slides autoplay="2000" loop="true" pager="true" (ionSlideDidChange)="slideChanged()" *ngIf = "proImgLen >= 1">
+      <ion-slide *ngFor = "let productImg of productImgs">
+        <img src="{{productImg}}" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="view-info" padding>
+    <div class="view-title" padding-bottom>{{product.goodsName}}</div>
+    <div class="clearfix">
+      <div float-left><span class="m-price">{{product.endPrice}}</span> <span class="m-old-price">{{product.price}}</span><span class="m-coupon">优惠券:{{product.couponMoney}}元</span></div>
+      <span float-right>月销 {{product.sales}}</span>
+    </div>
+  </div>
+  <div class="view-details-bar" (click)="lookDetail()">查看更多宝贝详情 <span></span></div>
+  <div class="view-details">
+    <img *ngFor = "let productDetailImg of productDetailImgs" src="{{productDetailImg}}" alt="">
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="view-bottom" no-padding>
+    <ion-grid no-padding>
+      <ion-row class="view-bottom" no-padding>
+        <ion-col col-2 no-padding class="view-btn-feedback" (click)="feedback()">
+          反馈
+        </ion-col>
+        <ion-col no-padding class="view-btn-share" (click)="shareProduct()">
+          分享商品
+        </ion-col>
+        <ion-col no-padding class="view-btn-getcoupon">
+          领{{product.couponMoney}}元优惠券
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

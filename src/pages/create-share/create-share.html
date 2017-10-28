@@ -1,0 +1,46 @@
+<!--
+  Generated template for the CreateSharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>create-share</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-scroll scrollX="true">
+    <ul class="m-playbill" radio-group>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="0" cheched></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="1"></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="2"></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="3"></ion-radio></li>
+      <li><img src="http://img.jfapps.com/user/201710/1509095997518536647.jpg" alt=""><ion-radio value="4"></ion-radio></li>
+    </ul>
+  </ion-scroll>
+  <div class="m-share-method">
+    <!--<ul><li></li></ul>-->
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          微信好友
+        </ion-col>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          QQ好友
+        </ion-col>
+        <ion-col>
+          <span class="m-icon-share m-icon-weixin"></span>
+          保存到相册
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div text-center class="m-more-share-btn" (click)="moreShare()">更多邀请方式</div>
+  </div>
+</ion-content>

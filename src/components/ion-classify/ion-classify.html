@@ -1,0 +1,53 @@
+<!-- Generated template for the IonClassifyComponent component -->
+<div [ngSwitch]="classifyStyle">
+  <!--styleType=2-2-1时-->
+<ion-grid class="classify-2" *ngSwitchCase="'2-2-1'">
+  <ion-row>
+    <ion-col (click)="pushList(classifyArr[0])"><h3>{{classifyArr[0].title}}</h3><p>{{classifyArr[0].subtitle}}</p><div float-right><img src="http://img.jfapps.com/{{classifyArr[0].img}}" alt=""></div></ion-col>
+    <ion-col (click)="pushList(classifyArr[1])"><h3>{{classifyArr[1].title}}</h3><p>{{classifyArr[1].subtitle}}</p><div float-right><img src="http://img.jfapps.com/{{classifyArr[1].img}}" alt=""></div></ion-col>
+  </ion-row>
+</ion-grid>
+  <!--styleType=2-3-1时-->
+<ion-grid class="classify-3" *ngSwitchCase="'2-3-1'">
+  <ion-row>
+    <ion-col (click)="pushList(classifyArr[0])"><h3>{{classifyArr[0].title}}</h3><p>{{classifyArr[0].subtitle}}</p><div><img src="http://img.jfapps.com/{{classifyArr[0].img}}" alt=""></div></ion-col>
+    <ion-col (click)="pushList(classifyArr[1])"><h3>{{classifyArr[1].title}}</h3><p>{{classifyArr[1].subtitle}}</p><div><img src="http://img.jfapps.com/{{classifyArr[1].img}}" alt=""></div></ion-col>
+    <ion-col (click)="pushList(classifyArr[2])"><h3>{{classifyArr[2].title}}</h3><p>{{classifyArr[2].subtitle}}</p><div><img src="http://img.jfapps.com/{{classifyArr[2].img}}" alt=""></div></ion-col>
+  </ion-row>
+</ion-grid>
+  <!--styleType=2-4-1时-->
+  <ion-grid class="classify-4" *ngSwitchCase="'2-4-1'">
+    <ion-row>
+      <ion-col class="border-right col-first" (click)="pushList(classifyArr[0])">
+        <h3>{{classifyArr[0].title}}</h3><p>{{classifyArr[0].subtitle}}</p><div><img src="http://img.jfapps.com/{{classifyArr[0].img}}" alt=""></div>
+      </ion-col>
+      <ion-col>
+        <ion-row class="border-bottom">
+          <ion-col (click)="pushList(classifyArr[1])"><div float-left><h3>{{classifyArr[1].title}}</h3><p>{{classifyArr[1].subtitle}}</p></div><div float-right><img [ngStyle]="{'width':'8rem'}" src="http://img.jfapps.com/{{classifyArr[1].img}}" alt=""></div></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="border-right" (click)="pushList(classifyArr[2])"><div><h3>{{classifyArr[2].title}}</h3><p>{{classifyArr[2].subtitle}}</p><div class="img-right"><img [ngStyle]="{'width':'5rem'}" src="http://img.jfapps.com/{{classifyArr[2].img}}" alt=""></div></div></ion-col>
+          <ion-col (click)="pushList(classifyArr[3])"><div><h3>{{classifyArr[3].title}}</h3><p>{{classifyArr[3].subtitle}}</p><div class="img-right"><img [ngStyle]="{'width':'5rem'}" src="http://img.jfapps.com/{{classifyArr[3].img}}" alt=""></div></div></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--styleType=2-5-1时-->
+  <ion-grid class="classify-5" *ngSwitchCase="'2-5-1'">
+    <ion-row>
+      <ion-col class="border-right col-first" (click)="pushList(classifyArr[0])">
+        <h3>{{classifyArr[0].title}}</h3><p>{{classifyArr[0].subtitle}}</p><div><img src="http://img.jfapps.com/{{classifyArr[0].img}}" alt=""></div>
+      </ion-col>
+      <ion-col>
+        <ion-row class="border-bottom">
+          <ion-col (click)="pushList(classifyArr[1])" class="border-right"><div><h3>{{classifyArr[1].title}}</h3><p>{{classifyArr[1].subtitle}}</p><div class="img-right"><img [ngStyle]="{'width':'5rem'}" src="http://img.jfapps.com/{{classifyArr[1].img}}" alt=""></div></div></ion-col>
+          <ion-col (click)="pushList(classifyArr[2])"><div><h3>{{classifyArr[2].title}}</h3><p>{{classifyArr[2].subtitle}}</p><div class="img-right"><img [ngStyle]="{'width':'5rem'}" src="http://img.jfapps.com/{{classifyArr[2].img}}" alt=""></div></div></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col (click)="pushList(classifyArr[3])" class="border-right"><div><h3>{{classifyArr[3].title}}</h3><p>{{classifyArr[3].subtitle}}</p><div class="img-right"><img [ngStyle]="{'width':'5rem'}" src="http://img.jfapps.com/{{classifyArr[3].img}}" alt=""></div></div></ion-col>
+          <ion-col (click)="pushList(classifyArr[4])"><div><h3>{{classifyArr[4].title}}</h3><p>{{classifyArr[4].subtitle}}</p><div class="img-right"><img [ngStyle]="{'width':'5rem'}" src="http://img.jfapps.com/{{classifyArr[4].img}}" alt=""></div></div></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
