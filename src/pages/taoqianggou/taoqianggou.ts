@@ -21,7 +21,7 @@ import 'rxjs/add/operator/mergeMap';
 export class TaoqianggouPage {
   liveIndex: any = [];
   products: any = [];
-  liveOn: boolean;
+  liveId:number;
   constructor(private http: Http, navCtrl: NavController, public navParams: NavParams, public taoqianggouService: TaoqianggouService) {
     // console.log(this.taoqianggouService.getLiveIndex())
   }
@@ -47,6 +47,7 @@ export class TaoqianggouPage {
             index.ifLivingName = '已开抢';
           }else if(index.ifLiving == 1){
             index.ifLivingName = '正在抢购';
+            this.liveId = index.id;
           }else{
             index.ifLivingName = '即将开抢';
           }
@@ -78,9 +79,9 @@ export class TaoqianggouPage {
       });
 
   }
-  select(live,liveOn){
+  select(live){
     console.log(live);
-    liveOn = true;
+    this.liveId = live.id;
     this.taoqianggouService.getLiveGoods(live).subscribe(
       result => {
         this.products = result.list;

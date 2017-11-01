@@ -20,10 +20,10 @@ export class IonClassifyComponent {
   }
 
   pushList(mainNav){
-    if(mainNav.listViewType == 3){
+    /*if(mainNav.listViewType == 3){
       this.navCtrl.push('VideoListPage',{mainNav:mainNav});
-    }else{
+    }else{*/
       this.navCtrl.push('ListPage',{mainNav:mainNav});
-    }
+    // }
   }
 }

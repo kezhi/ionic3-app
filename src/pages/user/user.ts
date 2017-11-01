@@ -1,19 +1,60 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,ModalController,ActionSheetController } from 'ionic-angular';
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-user',
   templateUrl: 'user.html'
 })
 export class UserPage {
-
-  constructor(public navCtrl: NavController) {
+  userInfo: {
+    mobile: string,
+    name: string
+  };
+  constructor(public navCtrl: NavController,public modalCtrl: ModalController,private storage: Storage,public actionSheetCtrl:ActionSheetController) {
 
   }
 
+
+  ionViewWillEnter() {
+    this.ifLogin();
+  }
+  ifLogin(){
+    this.storage.get('LoginInfo').then(loginInfo => {
+      console.log(loginInfo);
+      if (loginInfo&&loginInfo.token) {
+        let userInfo = loginInfo.user;
+        this.userInfo = {mobile:userInfo.mobile, name:userInfo.name};
+      }else{
+        const loginModal = this.modalCtrl.create('LoginPage');
+        loginModal.present();
+      }
+    });
+  }
   pushShare(){
-    console.log(111);
-    this.navCtrl.push('CreateSharePage');
+    // this.navCtrl.push('CreateSharePage');
+
+    const actionSheet = this.actionSheetCtrl.create({
+      title: '让朋友扫码领取APP登录资格',
+      cssClass:'qrcode-action',
+      buttons: [
+        {
+          text: 'dddd',
+          handler: () => {
+            return false;
+          }
+        },
+        {
+          text: '取消',
+          role: '',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+      }]
+    });
+
+    actionSheet.present();
   }
+
 
 }

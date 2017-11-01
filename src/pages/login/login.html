@@ -1,0 +1,42 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content>
+  <div class="login-bg">
+  <div class="login-logo"><img src="../../assets/imgs/logo@2x.png" alt=""></div>
+  <div class="login-wrap">
+    <form [formGroup]="loginForm" (ngSubmit)="goLogin(loginForm.value)">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label fixed><ion-icon name="phone-portrait"></ion-icon></ion-label>
+        <ion-input type="text" formControlName="mobile" clearInput></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed><ion-icon ios="ios-lock" md="md-lock"></ion-icon></ion-label>
+        <ion-input type="password" formControlName="randCode" clearInput></ion-input>
+        <button item-end class="login-input-inner-btn">获取验证码</button>
+      </ion-item>
+      <ion-item class="login-btn">
+        <button ion-button block type="submit" [disabled]="!loginForm.valid||submitted">登　录</button>
+      </ion-item>
+    </ion-list>
+    </form>
+  </div>
+  <ion-footer class="login-method">
+    <p>快捷登录</p>
+    <ul class="clearfix">
+      <li (click)="loginMethod(0)"><span><img src="../../assets/imgs/weixin@2x.png" alt=""></span>游客登录</li>
+      <li (click)="loginMethod(1)"><span><img src="../../assets/imgs/weixin@2x.png" alt=""></span>微信登录</li>
+    </ul>
+    <div text-center>
+      <ion-label class="login-check"><ion-checkbox color="dark" checked="true" class="login-check-left"></ion-checkbox>登录即代表同意 <a href="#">《APP用户协议》</a></ion-label>
+    </div>
+  </ion-footer>
+  </div>
+</ion-content>
+
+

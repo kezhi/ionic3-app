@@ -26,8 +26,7 @@ export class SearchPage {
   localValue: any = [];
   clearText: string;
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController, private searchService: SearchService) {
-    console.log(this.keywords);
-
+    console.log(this.keyword);
   }
 
   ionViewDidLoad() {

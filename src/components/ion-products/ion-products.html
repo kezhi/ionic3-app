@@ -48,6 +48,20 @@
       </div>
     </ion-item>
   </ion-list>
+  <!--短视频-->
+  <div *ngSwitchCase="'3'" class="m-video-list">
+    <ul class="clearfix">
+      <li *ngFor = "let product of products" (click)="goVideo(product)">
+        <div class="m-video-box">
+          <div class="m-video-img"><img src="{{product.smallPic}}"><span>券:{{product.couponMoney}}</span></div>
+          <div class="m-video-info clearfix">
+            <h3>{{product.goodsName}}</h3>
+            <p><span float-left><i color="orange">{{product.endPrice}}</i>券后</span><span float-right>已售:{{product.sales}}</span></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
   <ion-list *ngSwitchDefault no-margin class="m-list-thumbnail">
     <ion-item *ngFor="let product of products" (click)="goDetails(product)">
       <ion-thumbnail item-start>
@@ -59,4 +73,5 @@
       <div class="list-order" clear item-end>下单立省 <span class="list-order-price">{{product.couponMoney}}</span></div>
     </ion-item>
   </ion-list>
+
 </div>

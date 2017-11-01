@@ -1,6 +1,8 @@
 import { Component,ViewChild } from '@angular/core';
-import { NavController, NavParams,Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Slides,ModalController } from 'ionic-angular';
 import { ProductViewService } from './product-view.service';
+import {Storage} from "@ionic/storage";
+
 /**
  * Generated class for the ProductViewPage page.
  *
@@ -8,6 +10,7 @@ import { ProductViewService } from './product-view.service';
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-product-view',
   templateUrl: 'product-view.html',
@@ -20,18 +23,16 @@ export class ProductViewPage {
   productDetailImgs: string;
   productGuessList: any [];
   errorMessage: string;
-  constructor(public navCtrl: NavController,public navParams: NavParams, public productViewService:ProductViewService) {
+  goodsListStyle: string = '3-1-0-1';
+  constructor(public navCtrl: NavController,public navParams: NavParams,public modalCtrl: ModalController, public productViewService:ProductViewService, private storage: Storage) {
     this.product = this.navParams.get('item');
 
   }
   @ViewChild(Slides) slides: Slides;
 
   ionViewDidLoad() {
-    // this.getGoodView();
     this.getGoodImgs();
     this.getGoodsGuess();
-    console.log('ionViewDidLoad ProductViewPage');
-
   }
 
   slideChanged() {
@@ -70,7 +71,15 @@ export class ProductViewPage {
   shareProduct(){
     this.navCtrl.push('ShareProductPage');
   }
-  feedback(){
-    this.navCtrl.push('FeedbackPage');
+  feedback(product){
+    this.storage.get('LoginInfo').then(loginInfo => {
+      console.log(loginInfo.user.mobile);
+      if (loginInfo.token) {
+        this.navCtrl.push('FeedbackPage', {product: product});
+      }else{
+        const loginModal = this.modalCtrl.create('LoginPage');
+        loginModal.present();
+      }
+    });
   }
 }

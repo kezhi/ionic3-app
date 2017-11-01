@@ -11,6 +11,8 @@
   </ion-navbar>
 
 </ion-header>
+
+
 <ion-content>
   <div class="view-focus">
     <ion-slides autoplay="2000" loop="true" pager="true" (ionSlideDidChange)="slideChanged()" *ngIf = "proImgLen >= 1">
@@ -31,12 +33,15 @@
     <img *ngFor = "let productDetailImg of productDetailImgs" src="{{productDetailImg}}" alt="">
   </div>
 
+  <div class="product-list-title">猜你喜欢</div>
+  <ion-products [products]="productGuessList" [goodsListStyle]="goodsListStyle"></ion-products>
+
 </ion-content>
 <ion-footer>
   <ion-toolbar class="view-bottom" no-padding>
     <ion-grid no-padding>
       <ion-row class="view-bottom" no-padding>
-        <ion-col col-2 no-padding class="view-btn-feedback" (click)="feedback()">
+        <ion-col col-2 no-padding class="view-btn-feedback" (click)="feedback(product)">
           反馈
         </ion-col>
         <ion-col no-padding class="view-btn-share" (click)="shareProduct()">

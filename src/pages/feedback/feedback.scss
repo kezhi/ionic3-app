@@ -6,8 +6,15 @@ page-feedback {
   li{
     list-style: none;
   }
+  .clearfix:after{
+    overflow: hidden;
+    visibility: hidden;
+    content: '.';
+    clear: both;
+  }
   .feed-questions{
     position: relative;
+    margin-bottom: 1.8rem;
   }
   .feed-questions p ion-icon{
     font-size: 2.6rem;
@@ -20,8 +27,15 @@ page-feedback {
     line-height: 2.5rem;
     text-align: center;
   }
+  .feed-questions ion-input{
+    width: 90%;
+    float: left;
+    padding: 0;
+  }
+  .feed-questions .text-input{
+    margin:0;
+  }
   .feedback-area{
-    margin-top: 1.8rem;
   }
   .feedback-area textarea{
     width: 100%;

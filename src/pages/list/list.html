@@ -4,18 +4,18 @@
       {{param.title}}
     </ion-title>
   </ion-navbar>
-  <div *ngIf="goodsListStyle == '3-1-0-1'||goodsListStyle == '1'">
+  <div *ngIf="goodsListStyle == '3-1-0-1'||goodsListStyle == '1'" [(ngModel)]="type">
     <ion-segment>
-      <ion-segment-button (click)="sortType()">
+      <ion-segment-button (click)="sortType()" value="all">
         综合
       </ion-segment-button>
-      <ion-segment-button (click)="sortType('afterCoupon')">
+      <ion-segment-button (click)="sortType('afterCoupon')" value="afterCoupon">
         券后价
       </ion-segment-button>
-      <ion-segment-button (click)="sortType('coupon')">
+      <ion-segment-button (click)="sortType('coupon')" value="coupon">
         优惠券
       </ion-segment-button>
-      <ion-segment-button (click)="sortType('sales')">
+      <ion-segment-button (click)="sortType('sales')" value="sales">
         销量
       </ion-segment-button>
     </ion-segment>

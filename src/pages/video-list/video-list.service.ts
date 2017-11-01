@@ -20,7 +20,7 @@ export class VideoListService {
     console.log('Hello GoodsService Provider');
   }
 
-  getVideoList(): Observable<string[]> {
+  getVideoList(params): Observable<string[]> {
     return this.http.get('/app/goods/list2.api?partnerId=888')
       .map(this.extractData)
       .catch(this.handleError);

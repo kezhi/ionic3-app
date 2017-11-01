@@ -14,12 +14,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'video.html',
 })
 export class VideoPage {
-
+  videoInfo: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.videoInfo = this.navParams.get('item');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VideoPage');
   }
+
+
+
 
 }

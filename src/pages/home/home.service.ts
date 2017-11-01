@@ -26,11 +26,13 @@ export class HomeService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
   getGoodsList(sortObj): Observable<string[]> {
+    let url;
     if(sortObj.st >=2){
-      let url = '/app/goods/list2.api?partnerId=888&st='+sortObj.st;
+      url = '/app/goods/list2.api?partnerId=888&st='+sortObj.st;
     }else{
-      let url = '/app/index.api?partnerId=888';
+      url = '/app/index.api?partnerId=888';
     };
     return this.http.get(url)
       .map(this.extractData)

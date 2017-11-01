@@ -8,7 +8,7 @@ import { HomeService } from './home.service';
   providers: [HomeService]
 })
 export class HomePage {
-  products: any = [];   //列表数据
+  products: any;   //列表数据
   mainNavs: any = [];  //分类导航数据
   bannerList: any = [];  //轮播图数据
   classifyArr: any = [];   //分类数据
@@ -26,7 +26,7 @@ export class HomePage {
   @ViewChild(Slides) slides: Slides;
 
   slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
+    // let currentIndex = this.slides.getActiveIndex();
     // console.log('Current index is', currentIndex);
   }
 
@@ -49,7 +49,7 @@ export class HomePage {
           this.classifyStyle = result.list.list[1].styleType;
         },
         error =>  this.errorMessage = <any>error);
-  }
+  };
 
   getGoodsList(sortObj) {
     this.HomeService.getGoodsList(sortObj)
@@ -76,9 +76,14 @@ export class HomePage {
   pushSearch(){
     this.navCtrl.push('SearchPage');
   }
-  pushAdv(banner){
-    console.log(banner);
-    this.navCtrl.push()
+
+  pushAdv(item){
+    console.log(item);
+    if(item.toDo == 1){
+      this.navCtrl.push('ProductViewPage',{item:item.goods});
+    }else{
+
+    }
   }
   doInfinite(infiniteScroll) {
     this.sortObj.st = this.sortObj.st+1;

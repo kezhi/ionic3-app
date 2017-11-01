@@ -1,5 +1,5 @@
 import { Injectable }    from '@angular/core';
-import { Http,Response }       from '@angular/http';
+import { Headers,Http,Response }       from '@angular/http';
 import { NavParams } from 'ionic-angular';
 
 import { Observable } from 'rxjs/Observable';
@@ -25,7 +25,7 @@ export class SearchService {
     let headers = new Headers({'Content-Type': 'application/json'});
     let formData = new FormData();
     formData.append('key', obj.keyword);
-    return this.http.post('/app/goods/list2.api?partnerId=888',formData,{headers:headers})
+    return this.http.post('/app/goods/list2.api?partnerId=888&ifCoupon=1',formData,{headers:headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

@@ -101,6 +101,6 @@ export class CategoryPage {
         error =>  this.errorMessage = <any>error);
   }
   pushList(category){
-    this.navCtrl.push('ListPage',{category,category});
+    this.navCtrl.push('ListPage',{category: category});
   }
 }

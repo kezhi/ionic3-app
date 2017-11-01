@@ -11,7 +11,7 @@
   </ion-navbar>
   <ion-grid class="tqg-head">
     <ion-row>
-      <ion-col *ngFor="let live of liveIndex" [ngClass]="{'on': live.ifLiving==1}" (click)="select(live)">{{live.name}} <span>{{live.ifLivingName}}</span></ion-col>
+      <ion-col *ngFor="let live of liveIndex" [ngClass]="{'on': live.id==liveId}" (click)="select(live)">{{live.name}} <span>{{live.ifLivingName}}</span></ion-col>
     </ion-row>
   </ion-grid>
 </ion-header>

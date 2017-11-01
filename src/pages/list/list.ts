@@ -13,7 +13,8 @@ export class ListPage {
   param: any;
   goodsListStyle: string = '3-1-0-1';
   errorMessage: string;
-  sortObj = {
+  type:string = 'all';
+  sortObj: any = {
     catId:'',
     ifSuperDiscount: '',
     st: 1,
@@ -66,7 +67,6 @@ export class ListPage {
   sortType(type){
     this.sortObj.st = 1;
     if(type == 'afterCoupon'){
-      console.log('afterCoupon')
       if(this.sortObj.sortType == 4){
         this.sortObj.sortType = 3;
       }else{

@@ -2,7 +2,6 @@ import { Component,Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 // import { IonProductsService } from './ion-products.service';
 
-import { ProductViewPage } from '../../pages/product-view/product-view';
 
 /**
  * Generated class for the IonProductsComponent component.
@@ -45,6 +44,9 @@ export class IonProductsComponent{
         error =>  this.errorMessage = <any>error);
   }*/
   goDetails(item){
-    this.navCtrl.push(ProductViewPage,{item:item})
+    this.navCtrl.push('ProductViewPage',{item:item});
+  }
+  goVideo(item){
+    this.navCtrl.push('VideoPage',{item:item});
   }
 }

@@ -30,21 +30,21 @@ export class ListService {
     }else{
       let listUrl = 'goods/list2.api?partnerId=888&st='+sortObj.st+'&ifSuperDiscount='+sortObj.ifSuperDiscount+'&sortType='+sortObj.sortType;
     }*/
+    let listUrl;
     if(sortObj.catId){
-      console.log('分类');
-      let listUrl = 'goods/list2.api?partnerId=888&st='+sortObj.st+'&sortType='+sortObj.sortType+'&catId='+sortObj.catId;
+      listUrl = 'goods/list2.api?partnerId=888&st='+sortObj.st+'&sortType='+sortObj.sortType+'&catId='+sortObj.catId;
     }else if(sortObj.ifSuperDiscount){
       console.log('超级划算')
-      let listUrl = 'goods/list2.api?partnerId=888&st='+sortObj.st+'&ifSuperDiscount='+sortObj.ifSuperDiscount+'&sortType='+sortObj.sortType;
+      listUrl = 'goods/list2.api?partnerId=888&st='+sortObj.st+'&ifSuperDiscount='+sortObj.ifSuperDiscount+'&sortType='+sortObj.sortType;
     }else if(!sortObj.params){
       console.log('params为空');
       let param = this.navParams.get('mainNav');
-      let listUrl = param.link+'?st='+sortObj.st+'&sortType='+sortObj.sortType;
+      listUrl = param.link+'?st='+sortObj.st+'&sortType='+sortObj.sortType;
     }else{
       console.log('params有值');
       let param = this.navParams.get('mainNav');
       for(var i in sortObj.params){
-        let listUrl = param.link+'?st='+sortObj.st+'&sortType='+sortObj.sortType+'&'+i+'='+sortObj.params[i];
+        listUrl = param.link+'?st='+sortObj.st+'&sortType='+sortObj.sortType+'&'+i+'='+sortObj.params[i];
       }
     }
     return this.http.get('/app/'+listUrl)

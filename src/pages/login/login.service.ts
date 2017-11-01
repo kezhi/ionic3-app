@@ -1,6 +1,6 @@
 import { Injectable }    from '@angular/core';
-import { Http,Response }       from '@angular/http';
-import { NavParams } from 'ionic-angular';
+import { Headers,Http,Response }       from '@angular/http';
+import { NavController, NavParams} from 'ionic-angular';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -15,16 +15,28 @@ import 'rxjs/add/operator/map';
  */
 
 @Injectable()
-export class SearchService {
+export class LoginService {
+  // private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http, public navParams: NavParams) {
-    console.log('Hello GoodsService Provider');
+  constructor(private http: Http, public navParams:NavParams) {
+    console.log('Hello loginService Provider');
+
   }
 
 
+  //验证码登录
+  RandCodeLogin(user): Observable<string[]> {
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let formData = 'partnerId=888&mobile='+user.mobile+'&randCode='+user.randCode;
+    console.log(user, formData);
+    return this.http.post('app/user/login.api',formData,{headers:headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
  private extractData(res: Response) {
+    console.log(res);
     let body = res.json();
-    console.log(body);
     return body || { };
   }
 
