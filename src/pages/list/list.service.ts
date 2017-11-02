@@ -5,6 +5,7 @@ import { NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {APP_SERVE_URL} from '../../providers/constants';
 
 
 /**
@@ -47,7 +48,7 @@ export class ListService {
         listUrl = param.link+'?st='+sortObj.st+'&sortType='+sortObj.sortType+'&'+i+'='+sortObj.params[i];
       }
     }
-    return this.http.get('/app/'+listUrl)
+    return this.http.get(APP_SERVE_URL+'/'+listUrl)
       .map(this.extractData)
       .catch(this.handleError);
   }

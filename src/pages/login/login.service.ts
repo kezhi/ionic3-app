@@ -5,6 +5,7 @@ import { NavController, NavParams} from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {APP_SERVE_URL} from '../../providers/constants';
 
 
 /**
@@ -29,7 +30,7 @@ export class LoginService {
     let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let formData = 'partnerId=888&mobile='+user.mobile+'&randCode='+user.randCode;
     console.log(user, formData);
-    return this.http.post('app/user/login.api',formData,{headers:headers})
+    return this.http.post(APP_SERVE_URL+'/user/login.api',formData,{headers:headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

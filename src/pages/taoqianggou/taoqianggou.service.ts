@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-
+import {APP_SERVE_URL} from '../../providers/constants';
 
 /**
  * Generated class for the IonProductsComponent component.
@@ -42,13 +42,13 @@ export class TaoqianggouService {
   }*/
 
   getLiveIndex(): Observable<string[]> {
-    return this.http.get('app/liveIndex.api?partnerId=888')
+    return this.http.get(APP_SERVE_URL+'/liveIndex.api?partnerId=888')
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getLiveGoods(live): Observable<string[]> {
-    return this.http.get('app/goods/getLiveGoods.api?partnerId=888&dayType='+live.dayType+'&liveTimeId='+live.id)
+    return this.http.get(APP_SERVE_URL+'/goods/getLiveGoods.api?partnerId=888&dayType='+live.dayType+'&liveTimeId='+live.id)
       .map(this.extractData)
       .catch(this.handleError);
   }

@@ -20,7 +20,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 export class FeedbackPage {
   drop: boolean = true;
   isChange: boolean = false;//头像是否改变标识
-  avatarPath: string = './assets/img/qr_code.png';//用户默认头像
+  avatarPath: string = './assets/img/logo@2x.png';//用户默认头像
   imageBase64: string;//保存头像base64,用于上传
   user: any;
   feedbackList: any = [];

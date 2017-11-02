@@ -5,7 +5,7 @@ import { NavController, NavParams} from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import {APP_SERVE_URL} from '../../providers/constants';
 
 /**
  * Generated class for the IonProductsComponent component.
@@ -32,19 +32,19 @@ export class ProductViewService {
   //获取商品轮播图
   getGoodImgs(): Observable<string[]> {
 
-    return this.http.get('app/goods/goodsPics.api?partnerId=888&goodsId='+ this.goodsId)
+    return this.http.get(APP_SERVE_URL+'/goods/goodsPics.api?partnerId=888&goodsId='+ this.goodsId)
       .map(this.extractData)
       .catch(this.handleError);
   }
   //获取商品详情介绍
   getGoodDetail(): Observable<string[]> {
-    return this.http.get('/app/goods/detail2.api?partnerId=888&goodsId='+ this.goodsId)
+    return this.http.get(APP_SERVE_URL+'/goods/detail2.api?partnerId=888&goodsId='+ this.goodsId)
       .map(this.extractData)
       .catch(this.handleError);
   }
   //获取猜你喜欢
   getGoodsGuess(): Observable<string[]> {
-    return this.http.get('/app/goods/list6.api?partnerId=888&neGoodsId='+ this.goodsId + '&key=' + this.goodsName)
+    return this.http.get(APP_SERVE_URL+'/goods/list6.api?partnerId=888&neGoodsId='+ this.goodsId + '&key=' + this.goodsName)
       .map(this.extractData)
       .catch(this.handleError);
   }

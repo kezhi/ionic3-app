@@ -5,6 +5,7 @@ import { NavController, NavParams} from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {APP_SERVE_URL} from '../../providers/constants';
 
 /**
  * Generated class for the IonProductsComponent component.
@@ -22,7 +23,7 @@ export class FeedbackService {
 
 
   getFeedback(user): Observable <string[]> {
-    return this.http.get('app/feedback/getQuests.api?partnerId=888&token='+user.token)
+    return this.http.get(APP_SERVE_URL+'/feedback/getQuests.api?partnerId=888&token='+user.token)
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -30,7 +31,7 @@ export class FeedbackService {
   postFeedback(good): Observable<string[]> {
     let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let formData = 'token='+good.token+'&goodsId='+good.goodsId+'&des='+good.des+'&content='+good.content+'&type='+good.type;
-    return this.http.post('app/feedback/save.api?partnerId=888', formData, {headers:headers})
+    return this.http.post(APP_SERVE_URL+'/feedback/save.api?partnerId=888', formData, {headers:headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

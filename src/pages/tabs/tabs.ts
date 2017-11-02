@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,ModalController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 import { UserPage } from '../user/user';
 import { CategoryPage } from '../category/category';
@@ -16,7 +16,7 @@ export class TabsPage {
   tab4Root = UserPage;
 
 
-  constructor(public navCtrl: NavController,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController) {
 
   }
 

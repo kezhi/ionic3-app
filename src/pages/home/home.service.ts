@@ -4,6 +4,7 @@ import { Http,Response }       from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {APP_SERVE_URL} from '../../providers/constants';
 
 
 /**
@@ -22,7 +23,7 @@ export class HomeService {
   }
 
   getGoodsListStyle(): Observable<string[]> {
-    return this.http.get('/app/getModuleCategoryInfo.api?partnerId=888')
+    return this.http.get(APP_SERVE_URL+'/getModuleCategoryInfo.api?partnerId=888')
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -30,9 +31,9 @@ export class HomeService {
   getGoodsList(sortObj): Observable<string[]> {
     let url;
     if(sortObj.st >=2){
-      url = '/app/goods/list2.api?partnerId=888&st='+sortObj.st;
+      url = APP_SERVE_URL+'/goods/list2.api?partnerId=888&st='+sortObj.st;
     }else{
-      url = '/app/index.api?partnerId=888';
+      url = APP_SERVE_URL+'/index.api?partnerId=888';
     };
     return this.http.get(url)
       .map(this.extractData)

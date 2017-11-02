@@ -39,7 +39,7 @@ export class HomePage {
     this.HomeService.getGoodsListStyle()
       .subscribe(
         result => {
-          this.goodsListStyle = result?result.list.goodsListStyle:'';
+          this.goodsListStyle = result.list.goodsListStyle;
           if(result.list.list[0].styleType == '2-10-0'){
             this.mainNavs = result.list.list[0].cateInfoList;
           }else{

@@ -5,7 +5,7 @@ import { NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import {APP_SERVE_URL} from '../../providers/constants';
 
 /**
  * Generated class for the IonProductsComponent component.
@@ -25,12 +25,12 @@ export class SearchService {
     let headers = new Headers({'Content-Type': 'application/json'});
     let formData = new FormData();
     formData.append('key', obj.keyword);
-    return this.http.post('/app/goods/list2.api?partnerId=888&ifCoupon=1',formData,{headers:headers})
+    return this.http.post(APP_SERVE_URL+'/goods/list2.api?partnerId=888&ifCoupon=1',formData,{headers:headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
   getHotWords(): Observable<string[]> {
-    return this.http.get('/app/getHotWords.api?partnerId=888')
+    return this.http.get(APP_SERVE_URL+'/getHotWords.api?partnerId=888')
       .map(this.extractData)
       .catch(this.handleError);
   }

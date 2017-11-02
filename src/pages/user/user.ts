@@ -32,28 +32,10 @@ export class UserPage {
     });
   }
   pushShare(){
-    // this.navCtrl.push('CreateSharePage');
-
-    const actionSheet = this.actionSheetCtrl.create({
-      title: '让朋友扫码领取APP登录资格',
-      cssClass:'qrcode-action',
-      buttons: [
-        {
-          text: 'dddd',
-          handler: () => {
-            return false;
-          }
-        },
-        {
-          text: '取消',
-          role: '',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-      }]
-    });
-
-    actionSheet.present();
+    this.navCtrl.push('CreateSharePage');
+  }
+  pushAbout(){
+    this.navCtrl.push('AboutPage');
   }
 
 

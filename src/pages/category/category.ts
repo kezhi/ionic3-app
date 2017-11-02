@@ -10,7 +10,7 @@ import { CategoryService } from './category.service';
 })
 export class CategoryPage {
 
-  categoryList: any [];
+  categoryList: any = [];
   errorMessage: string;
   constructor(public navCtrl: NavController, public categoryService: CategoryService) {
 
@@ -90,9 +90,9 @@ export class CategoryPage {
           categoryArr.forEach(function (index) {
             categoryInfo.forEach(function (item) {
               if(index.id == item.id){
-               index.img = item.img;
-               index.des = item.des;
-               }
+                index.img = item.img;
+                index.des = item.des;
+              }
             });
           });
           this.categoryList = categoryArr;

@@ -4,7 +4,7 @@ import { Http,Response }       from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-
+import {APP_SERVE_URL} from '../../providers/constants';
 
 /**
  * Generated class for the IonProductsComponent component.
@@ -21,7 +21,7 @@ export class VideoListService {
   }
 
   getVideoList(params): Observable<string[]> {
-    return this.http.get('/app/goods/list2.api?partnerId=888')
+    return this.http.get(APP_SERVE_URL+'/goods/list2.api?partnerId=888')
       .map(this.extractData)
       .catch(this.handleError);
   }

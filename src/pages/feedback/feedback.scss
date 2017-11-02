@@ -74,10 +74,26 @@ page-feedback {
   .feed-add-img span{
     display: block;
   }
+  .feedback-btn .toolbar-ios{
+    padding: 0;
+    min-height:3rem;
+  }
   .feedback-btn .toolbar-ios ion-title{
     background: orangered;
     border:none;
   }
+  .feedback-btn .button-ios{
+    background: orangered;
+    border:none;
+    border-radius: 0;
+    height: 3rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
   .feedback-btn .toolbar-title-ios{
     color: #fff;
   }

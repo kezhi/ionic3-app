@@ -4,6 +4,7 @@ import { Http,Response }       from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {APP_SERVE_URL} from '../../providers/constants';
 
 
 /**
@@ -22,7 +23,7 @@ export class CategoryService {
   }
 
   getCategory(): Observable<string[]> {
-    return this.http.get('/app/goods/categoryList.api')
+    return this.http.get(APP_SERVE_URL+'/goods/categoryList.api')
       .map(this.extractData)
       .catch(this.handleError);
   }
