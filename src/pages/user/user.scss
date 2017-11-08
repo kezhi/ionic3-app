@@ -4,6 +4,7 @@ page-user {
     visibility: hidden;
     content: '.';
     clear: both;
+    display: block;
   }
   .m-user-wrap{
     background: url('../../assets/imgs/wdbg@3x.png');
@@ -20,8 +21,9 @@ page-user {
     margin-right: 1em;
   }
   .m-user-avatar img{
-    width: 6em;
-    height: 6em;
+    width: 5.2em;
+    height: 5.2em;
+    border-radius: 5px;
   }
   .m-user-info{
     color: #fff;
@@ -60,8 +62,7 @@ page-user {
   }
   .m-user-item2{
     width: 100%;
-    margin-left: -1px;
-    margin-top: 5px;
+    margin: 5px 0 5px -1px;
   }
   .m-user-item2 .col{
     background:#fff;
@@ -75,5 +76,8 @@ page-user {
   }
   .m-user-item2 .col span img{
     width: 2.3em;
+  }
+  .user-list .item-block{
+    margin-bottom: 5px;
   }
 }

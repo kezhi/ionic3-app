@@ -46,9 +46,10 @@ page-video-list {
   .m-video-info h3{
     font-size: 1.4rem;
     color: #333;
-    margin-top:1rem;
-    line-height: 0;
+    margin-top:8px;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   .m-video-info{
     padding-bottom: 0.4rem;

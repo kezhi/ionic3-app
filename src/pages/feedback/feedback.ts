@@ -61,7 +61,7 @@ export class FeedbackPage {
   getFeedback(user){
     this.feedbackService.getFeedback(user).subscribe(
       result => {
-        this.feedbackList = result.list;
+        this.feedbackList = result;
       }
     )
   }

@@ -1,0 +1,16 @@
+page-service-center {
+  .service-center{
+    padding: 0 2rem;
+  }
+  .service-center .service-title{
+    color:orangered;
+  }
+  .service-center .qrcode{
+    width: 14rem;
+    margin: 1rem auto;
+  }
+  .m-button-group button{
+    border-radius: 10rem;
+    margin-bottom: 1rem;
+  }
+}

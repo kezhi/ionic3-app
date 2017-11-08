@@ -2,13 +2,16 @@ import { IonicModule } from 'ionic-angular';
 import { NgModule } from '@angular/core';
 import { IonProductsComponent } from './ion-products/ion-products';
 import { IonClassifyComponent } from './ion-classify/ion-classify';
-import { LoginComponent } from './login/login';
+import { IonSlideContentComponent } from './ion-slide-content/ion-slide-content';
+import { IonShareComponent } from './ion-share/ion-share';
 
 @NgModule({
 	declarations: [IonProductsComponent, IonClassifyComponent,
-    LoginComponent],
+    IonSlideContentComponent,
+    IonShareComponent],
 	imports: [IonicModule],
 	exports: [IonProductsComponent, IonClassifyComponent,
-    LoginComponent]
+    IonSlideContentComponent,
+    IonShareComponent]
 })
 export class ComponentsModule { }

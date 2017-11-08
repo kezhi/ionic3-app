@@ -12,6 +12,7 @@ export class CategoryPage {
 
   categoryList: any = [];
   errorMessage: string;
+
   constructor(public navCtrl: NavController, public categoryService: CategoryService) {
 
   }
@@ -86,9 +87,9 @@ export class CategoryPage {
     this.categoryService.getCategory()
       .subscribe(
         result => {
-          let categoryArr = result.list;
-          categoryArr.forEach(function (index) {
-            categoryInfo.forEach(function (item) {
+          let categoryArr = result;
+          categoryArr.forEach(function (index:any) {
+            categoryInfo.forEach(function (item:any) {
               if(index.id == item.id){
                 index.img = item.img;
                 index.des = item.des;

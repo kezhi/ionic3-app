@@ -1,9 +1,11 @@
 "use strict";
 /*----------------------------------------后台Api地址----------------------------------------*/
-exports.APP_SERVE_URL = '/app'; //'http://read.jfapps.com/app';
+exports.APP_SERVE_URL = '/app'; //'http://laike.jfapps.com/app';jkj
+exports.APP_IMG_URL = 'http://img.jfapps.com'; //图片服务器地址
 /*----------------------------------------文件服务器地址----------------------------------------*/
 exports.FILE_SERVE_URL = ''; //文件服务:测试环境
-/*----------------------------------------app版本升级服务地址----------------------------------------*/
+exports.PARTNERID = '888'; //partnerId
+/*----------------------------------------app 信息----------------------------------------*/
 exports.APP_VERSION_SERVE_URL = ''; //app版本升级服务;测试环境,查询app最新版本号,更新日志等信息.
 exports.APP_VERSION = '1.0'; //app版本升级服务;测试环境,查询app最新版本号,更新日志等信息.
 exports.APP_NAME = '花生LK'; //app版本升级服务;测试环境,查询app最新版本号,更新日志等信息.

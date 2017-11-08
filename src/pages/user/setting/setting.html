@@ -1,0 +1,24 @@
+<!--
+  Generated template for the SettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>设置</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list no-lines>
+    <button ion-item (click)="settingAvatar()"><h3 item-start>头像</h3><p item-end><span class="head-box">
+      <img src="{{'http://img.jfapps.com/'+userInfo?.headImg}}" alt=""></span></p></button>
+    <button ion-item><h3 item-start>昵称</h3><p item-end>{{userInfo?.nickName||'未设置'}}</p></button>
+    <button ion-item><h3 item-start>支付宝账号</h3><p item-end>{{userInfo?.aliNo||'未设置'}}</p></button>
+    <button ion-item><h3 item-start>微信绑定</h3><p item-end>{{userInfo?.ifBindWx == 0?'未绑定':'已绑定'}}</p></button>
+  </ion-list>
+</ion-content>

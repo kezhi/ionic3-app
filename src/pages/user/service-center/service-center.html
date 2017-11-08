@@ -1,0 +1,26 @@
+<!--
+  Generated template for the ServiceCenterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>客服中心</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="service-center">
+    <div class="service-title" text-center>客服二维码</div>
+    <div class="qrcode"><img src="http://img.jfapps.com/{{serviceInfo?.wxExm}}" alt=""></div>
+    <div class="m-button-group">
+      <div><button ion-button full color="secondary">{{serviceInfo?.wxLabel}}</button></div>
+      <div><button ion-button full (click)="creatShare()">{{serviceInfo?.qqList[0].qqName}}</button></div>
+      <div text-center>{{serviceInfo?.kfTime}}</div>
+    </div>
+  </div>
+</ion-content>

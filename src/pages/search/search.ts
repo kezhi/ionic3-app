@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
 import { SearchService } from './search.service';
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the SearchPage page.
@@ -17,7 +18,7 @@ import { SearchService } from './search.service';
 })
 export class SearchPage {
   obj:{
-    keyword: string
+    key: string
   };
   keyword: string;
   hotWords:any=[];
@@ -25,33 +26,43 @@ export class SearchPage {
   productsLen: number = null;
   localValue: any = [];
   clearText: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController, private searchService: SearchService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public toastCtrl: ToastController,
+              private storage: Storage,
+              private searchService: SearchService) {
     console.log(this.keyword);
   }
 
   ionViewDidLoad() {
-    this.localValue = localStorage.getItem('keywords')?localStorage.getItem('keywords').split(','):[];
-    this.clearText = this.localValue.length>0? '清除历史记录':'暂无搜索记录';
-    console.log('ionViewDidLoad SearchPage');
+    // this.localValue = this.storage.get('keywords')?this.storage.get('keywords'):[];//localStorage.getItem('keywords')?localStorage.getItem('keywords').split(','):[];
+// console.log(this.localValue);
+    //
+    this.storage.get('keywords').then(keywords => {
+      this.localValue = keywords?keywords.split(','):[];
+      console.log(this.localValue);
+      this.clearText = this.localValue&&this.localValue.length>0? '清除历史记录':'暂无搜索记录';
+    });
+
     this.getHotWords();
   }
 
   getHotWords(){
     this.searchService.getHotWords().subscribe(
       result=>{
-        this.hotWords = result.list;
+        this.hotWords = result;
       })
   }
   onSearch(keyword){
     this.keyword = keyword;
     this.obj = {
-      keyword:keyword
+      key:keyword
     };
     if(keyword){
       this.searchService.getGoodsList(this.obj).subscribe(
         result => {
-          this.products = result.list;
-          this.productsLen = result.list.length;
+          this.products = result;
+          this.productsLen = result.length;
           if(this.productsLen == 0){
             let toast = this.toastCtrl.create({
               message: '亲,您搜索的商品不存在,试试其他的关键词吧!',
@@ -63,14 +74,19 @@ export class SearchPage {
         })
     }
     //存储关键词
-    let val = localStorage.getItem('keywords');
+    /*let val = this.storage.get('keywords');
     console.log(keyword);
     let localValue = val?val + ','+ keyword:keyword;
-    console.log(localValue);
-    localStorage.setItem('keywords',localValue);
+    console.log(localValue);*/
+    this.storage.get('keywords').then(keywords => {
+      console.log(keywords);
+      let localValue = keywords?keywords + ','+ keyword:keyword;
+      this.storage.set('keywords',localValue);
+    });
+
   }
   clearHistory(){
-    localStorage.clear('keywords');
+    this.storage.remove('keywords');
     this.localValue = [];
   }
 

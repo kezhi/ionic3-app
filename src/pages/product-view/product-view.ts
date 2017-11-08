@@ -18,10 +18,10 @@ import {Storage} from "@ionic/storage";
 })
 export class ProductViewPage {
   product: any;
-  productImgs: any [];
+  productImgs: any = [];
   proImgLen: number;
-  productDetailImgs: string;
-  productGuessList: any [];
+  productDetailImgs: any = [];
+  productGuessList: any = [];
   errorMessage: string;
   goodsListStyle: string = '3-1-0-1';
   constructor(public navCtrl: NavController,public navParams: NavParams,public modalCtrl: ModalController, public productViewService:ProductViewService, private storage: Storage) {
@@ -43,8 +43,8 @@ export class ProductViewPage {
     this.productViewService.getGoodImgs()
       .subscribe(
         result => {
-          this.proImgLen = result.images.length;
-          this.productImgs = result.images;
+          this.proImgLen = result.length;
+          this.productImgs = result;
         },
         error => this.errorMessage = <any>error);
   }
@@ -52,7 +52,7 @@ export class ProductViewPage {
     this.productViewService.getGoodDetail()
       .subscribe(
         result => {
-          this.productDetailImgs = result.images;
+          this.productDetailImgs = result;
         },
         error => this.errorMessage = <any>error);
   }
@@ -60,7 +60,7 @@ export class ProductViewPage {
     this.productViewService.getGoodsGuess()
       .subscribe(
         result => {
-          this.productGuessList = result.list;
+          this.productGuessList = result;
           console.log(this.productGuessList);
         },
         error => this.errorMessage = <any>error);
@@ -77,7 +77,7 @@ export class ProductViewPage {
       if (loginInfo.token) {
         this.navCtrl.push('FeedbackPage', {product: product});
       }else{
-        const loginModal = this.modalCtrl.create('LoginPage');
+        const loginModal = this.modalCtrl.create('LoginPage',{page:'ProductViewPage'});
         loginModal.present();
       }
     });

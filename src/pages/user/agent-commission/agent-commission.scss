@@ -1,0 +1,35 @@
+page-agent-commission {
+  .agent-commission{
+    text-align: center;
+  }
+  .agent-commission img{
+    width: 12rem;
+  }
+  .my-balance{
+    margin-top: 1rem;
+  }
+  .my-balance span{
+    display: block;
+  }
+  .my-balance span.agent-money{
+    font-size: 3rem;
+  }
+  .m-button-group{
+    background: #fff;
+    padding: 1rem;
+    color: orangered;
+  }
+  .m-button-group button:first-child{
+    border-radius: 5px;
+    margin-bottom: 2rem;
+  }
+  .m-button-group .button-outline{
+    border:1px solid orangered;
+    border-radius: 5px;
+    color: orangered;
+    margin-bottom: 1.8rem;
+  }
+  .m-button-group .button-outline.activated{
+    background: none;
+  }
+}

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController,Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,Events, ToastController } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {FormBuilder, Validators} from '@angular/forms';
 import { TabsPage } from '../tabs/tabs';
 import { LoginService } from './login.service';
+import { GlobalData } from "../../providers/global-data";
 /**
  * Generated class for the LoginPage page.
  *
@@ -21,17 +22,27 @@ export class LoginPage {
   userInfo: any;
   submitted: boolean = false;
   loginForm: any;
+  mobile: string;
+  randCode: string;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               private loginService: LoginService,
               private formBuilder: FormBuilder,
               private events: Events,
-              private storage: Storage) {
-    this.loginForm = this.formBuilder.group({
+              public toastCtrl: ToastController,
+              private storage: Storage,
+              private globalData: GlobalData
+  ) {
+    /*this.loginForm = this.formBuilder.group({
       mobile: ['15811012797', [Validators.required, Validators.minLength(4)]],// 第一个参数是默认值
       randCode: ['867867', [Validators.required, Validators.minLength(4)]]
-    });
+    });*/
+    // this.user = {mobile:mobile,randCode:randCode};
+    this.mobile = '15811012797';
+    this.randCode = '8012';
+    console.log(this.navParams.get('page'))
   }
 
   ionViewWillEnter() {
@@ -43,20 +54,41 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-
-  goLogin(user){
-    console.log(user);
+  goLogin(mobile,randCode){
+    console.log(mobile,randCode);
+    let user = {
+      mobile: mobile,
+      randCode: randCode
+    };
     this.loginService.RandCodeLogin(user).subscribe(
       loginInfo => {
         console.log(loginInfo);
-        this.storage.clear();//清除缓存
-        this.submitted = false;
-        this.userInfo = loginInfo.user;
-        this.events.publish('user:login', loginInfo);
-        this.storage.set('LoginInfo', loginInfo);
-        this.viewCtrl.dismiss(loginInfo.user);
+        let info = <any> loginInfo;
+        if(info.status == 200){
+          this.storage.remove('loginInfo');//清除缓存
+          this.submitted = false;
+          this.globalData.token = info.token;
+          this.events.publish('user:login', loginInfo);
+          this.storage.set('LoginInfo', loginInfo);
+          this.viewCtrl.dismiss(loginInfo);
+        }else{
+          let toast = this.toastCtrl.create({
+            message: info.result,
+            duration: 2000
+          });
+          toast.present();
+        }
+
       },() => {
         this.submitted = false;
+      }
+    )
+  }
+  // 获取验证码
+  getCode(mobile){
+    this.loginService.sendLoginCode(mobile).subscribe(
+      res=>{
+        console.log(res);
       }
     )
   }

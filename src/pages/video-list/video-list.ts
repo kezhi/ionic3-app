@@ -32,7 +32,7 @@ export class VideoListPage {
     this.VideoListService.getVideoList(params).subscribe(
       result => {
         console.log(result);
-        this.videoList = result.list;
+        this.videoList = result;
       },
       error => this.errorMessage = <any>error);
   }

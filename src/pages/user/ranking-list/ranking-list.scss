@@ -1,0 +1,60 @@
+page-ranking-list {
+  .rank-list-wrap{
+    padding: 5px;
+  }
+  .bg-orange{
+    background: orange !important;
+  }
+  .rank-list-wrap .segment-button{
+    background: #fff;
+    border-radius: 5px;
+    border:none;
+    font-size: 1.6rem;
+    color: #333;
+  }
+  .rank-list-wrap .segment-button.segment-activated{
+    background: red;
+    color: #fff;
+  }
+  .ranking-list-content{
+    margin-top: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    background: #fff;
+  }
+  .rank-top{
+    background: url('../../../assets/imgs/rank-top-bg.png') no-repeat;
+    background-size: 100%;
+    text-align: center;
+    padding: 5px;
+    margin:0 5px;
+    border-radius: 5px;
+  }
+  .rank-top img{
+    width: 5.6em;
+  }
+  .rank-top span{
+    display: block;
+    color: darkred;
+  }
+  .rank-list{
+    text-align: center;
+  }
+  .rank-list .rank-title{
+    background: #efefef;
+    color: darkred;
+  }
+  .rank-list .row{
+    border-bottom: 0.5px solid #efefef;
+  }
+  .rank-list .row:last-child{
+    border: none;
+  }
+  .rank-list .col span{
+    display: block;
+  }
+  .rank-list .rank-top-img img{
+    width: 1.4em;
+  }
+
+}

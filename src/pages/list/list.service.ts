@@ -49,13 +49,10 @@ export class ListService {
       }
     }
     return this.http.get(APP_SERVE_URL+'/'+listUrl)
-      .map(this.extractData)
+      .map(res=>{
+        return res.json().list;
+      })
       .catch(this.handleError);
-  }
-
- private extractData(res: Response) {
-    let body = res.json();
-    return body || { };
   }
 
   private handleError (error: Response | any) {

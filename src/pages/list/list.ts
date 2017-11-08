@@ -1,4 +1,4 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController,NavParams } from 'ionic-angular';
 import { ListService } from './list.service';
 
@@ -55,9 +55,9 @@ export class ListPage {
     this.listService.getGoodsList(sortObj).subscribe(
         result => {
           if(sortObj.st==1){
-            this.products = result.list;
+            this.products = result;
           }else{
-            this.products = this.products.concat(result.list);
+            this.products = this.products.concat(result);
           }
         },
         error => this.errorMessage = <any>error);

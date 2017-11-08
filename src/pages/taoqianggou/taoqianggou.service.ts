@@ -43,19 +43,18 @@ export class TaoqianggouService {
 
   getLiveIndex(): Observable<string[]> {
     return this.http.get(APP_SERVE_URL+'/liveIndex.api?partnerId=888')
-      .map(this.extractData)
+      .map(res=> {
+        return res.json().list;
+      })
       .catch(this.handleError);
   }
 
   getLiveGoods(live): Observable<string[]> {
     return this.http.get(APP_SERVE_URL+'/goods/getLiveGoods.api?partnerId=888&dayType='+live.dayType+'&liveTimeId='+live.id)
-      .map(this.extractData)
+      .map(res=> {
+        return res.json().list;
+      })
       .catch(this.handleError);
-  }
-
- private extractData(res: Response) {
-    let body = res.json();
-    return body || { };
   }
 
   private handleError (error: Response | any) {

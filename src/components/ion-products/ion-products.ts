@@ -17,8 +17,11 @@ import { NavController } from 'ionic-angular';
 export class IonProductsComponent{
   errorMessage: string;
   @Input() products: any[];
+  @Input() catList: any[];
   @Input() goodsListStyle: string;
-   constructor(public navCtrl: NavController) {}  //public IonProductsService: IonProductsService
+   constructor(public navCtrl: NavController) {
+
+   }  //public IonProductsService: IonProductsService
 
   /*ngOnInit(): void {
     this.getGoodsListStyle();

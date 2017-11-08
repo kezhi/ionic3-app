@@ -4,9 +4,10 @@ page-product-view {
     visibility: hidden;
     content: '.';
     clear: both;
+    display: block;
   }
   .view-focus{
-    height:400px;
+    height:30rem;
   }
   .view-focus img{
     height:400px;

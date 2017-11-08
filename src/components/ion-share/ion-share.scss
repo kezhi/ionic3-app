@@ -1,0 +1,28 @@
+ion-share {
+  .m-share-method{
+    margin-top: 5px;
+  }
+  .m-icon-share{
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .m-icon-weixin{
+    background: url("../../assets/imgs/weixin@2x.png");
+    background-size: 100%
+  }
+  .m-share-method .col{
+    text-align: center;
+  }
+  .m-more-share-btn{
+    margin-top: 8px;
+    width: 80%;
+    margin: 0 auto;
+    background: orangered;
+    line-height: 2.5rem;
+    color: #fff;
+    border-radius: 5px;
+  }
+}

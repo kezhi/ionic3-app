@@ -4,6 +4,7 @@
 </div>-->
 
 <div [ngSwitch]="goodsListStyle">
+  <!--通用一条竖列-->
   <ion-list *ngSwitchCase="'3-1-0-1'" no-margin class="m-list-thumbnail">
     <ion-item *ngFor="let product of products" (click)="goDetails(product)">
       <ion-thumbnail item-start>
@@ -11,31 +12,36 @@
       </ion-thumbnail>
       <h2>{{product.goodsName}}</h2>
       <p><span item-start>天猫价：{{product.price}}元</span><span item-end>月销:{{product.sales}}</span></p>
-      <h3>券后价 <span color="orange">{{product.endPrice}}元</span><span>包邮</span></h3>
+      <h3>券后价:<span class="text-orange">{{product.endPrice}}元</span>  <span class="bg-radius-orange">包邮</span></h3>
       <div class="list-order" clear item-end>下单立省 <span class="list-order-price">{{product.couponMoney}}</span></div>
     </ion-item>
   </ion-list>
+  <!--首页两格排列-->
   <ion-list *ngSwitchCase="'3-1-0-2'" class="m-list-grid">
     <ion-item no-lines *ngFor="let product of products" (click)="goDetails(product)">
       <div class="grid-list-inner">
         <div class="grid-img"><img src="{{product.smallPic}}"></div>
-        <h3>{{product.goodsName}}</h3>
-        <span>优惠券:{{product.couponMoney}}</span>
-        <p><span item-start>券后价 <i color="orange">{{product.endPrice}}元</i></span><span item-end>月销:{{product.sales}}</span></p>
+        <div class="grid-product-info">
+          <h3>{{product.goodsName}}</h3>
+          <span class="coupon-style">优惠券:{{product.couponMoney}}</span>
+          <p><span item-start>券后价:<i class="text-orange">{{product.endPrice}}元</i></span><span float-right>月销:{{product.sales}}</span></p>
+        </div>
       </div>
     </ion-item>
   </ion-list>
+  <!--通用一条竖列, goodsListStyle值不同-->
   <ion-list *ngSwitchCase="'1'" no-margin class="m-list-thumbnail">
     <ion-item *ngFor="let product of products" (click)="goDetails(product)">
       <ion-thumbnail item-start>
         <img src="{{product.smallPic}}">
       </ion-thumbnail>
       <h2>{{product.goodsName}}</h2>
-      <p><span item-start>天猫价：{{product.price}}元</span><span item-end>月销:{{product.sales}}</span></p>
-      <h3>券后价 <span color="orange">{{product.endPrice}}元</span><span>包邮</span></h3>
+      <p><span item-start>天猫价:{{product.price}}元</span><span item-end>月销:{{product.sales}}</span></p>
+      <h3>券后价:<span class="text-orange">{{product.endPrice}}元</span> <span class="bg-radius-orange">包邮</span></h3>
       <div class="list-order" clear item-end>下单立省 <span class="list-order-price">{{product.couponMoney}}</span></div>
     </ion-item>
   </ion-list>
+  <!--限时抢购两格排列-->
   <ion-list *ngSwitchCase="'2'" class="m-list-grid2">
     <ion-item no-lines *ngFor="let product of products" (click)="goDetails(product)">
       <div class="grid-list-inner">
@@ -51,27 +57,41 @@
   <!--短视频-->
   <div *ngSwitchCase="'3'" class="m-video-list">
     <ul class="clearfix">
-      <li *ngFor = "let product of products" (click)="goVideo(product)">
+      <li *ngFor = "let product of products">
         <div class="m-video-box">
-          <div class="m-video-img"><img src="{{product.smallPic}}"><span>券:{{product.couponMoney}}</span></div>
-          <div class="m-video-info clearfix">
+          <div class="m-video-img" (click)="goVideo(product)"><img src="{{product.smallPic}}"><span class="m-video-coupon">券:{{product.couponMoney}}</span><span class="m-icon-video"></span></div>
+          <div class="m-video-info clearfix" (click)="goDetails(product)">
             <h3>{{product.goodsName}}</h3>
-            <p><span float-left><i color="orange">{{product.endPrice}}</i>券后</span><span float-right>已售:{{product.sales}}</span></p>
+            <p><span float-left><i class="text-orange">{{product.endPrice}}</i> 券后</span><span float-right>已售:{{product.sales}}</span></p>
           </div>
         </div>
       </li>
     </ul>
   </div>
+
+  <!--通用一条竖列-->
+  <ion-list *ngSwitchCase="'indexList'" no-margin class="m-list-thumbnail">
+    <ion-item *ngFor="let catDate of catList" (click)="goDetails(catDate)">
+      <ion-thumbnail item-start>
+        <img src="{{catDate.smallPic}}">
+      </ion-thumbnail>
+      <h2>{{catDate.goodsName}}</h2>
+      <p><span item-start>天猫价:{{catDate.price}}元</span><span item-end>月销:{{catDate.sales}}</span></p>
+      <h3>券后价:<span class="text-orange">{{catDate.endPrice}}元</span> <span class="bg-radius-orange">包邮</span></h3>
+      <div class="list-order" clear item-end>下单立省 <span class="list-order-price">{{catDate.couponMoney}}</span></div>
+    </ion-item>
+  </ion-list>
+
+  <!--默认,通用一条竖列-->
   <ion-list *ngSwitchDefault no-margin class="m-list-thumbnail">
     <ion-item *ngFor="let product of products" (click)="goDetails(product)">
       <ion-thumbnail item-start>
         <img src="{{product.smallPic}}">
       </ion-thumbnail>
       <h2>{{product.goodsName}}</h2>
-      <p><span item-start>天猫价：{{product.price}}元</span><span item-end>月销:{{product.sales}}</span></p>
-      <h3>券后价 <span color="orange">{{product.endPrice}}元</span><span>包邮</span></h3>
+      <p><span item-start>天猫价:{{product.price}}元</span><span item-end>月销:{{product.sales}}</span></p>
+      <h3>券后价:<span class="text-orange">{{product.endPrice}}元</span> <span class="bg-radius-orange">包邮</span></h3>
       <div class="list-order" clear item-end>下单立省 <span class="list-order-price">{{product.couponMoney}}</span></div>
     </ion-item>
   </ion-list>
-
 </div>

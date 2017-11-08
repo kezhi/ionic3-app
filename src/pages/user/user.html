@@ -2,31 +2,31 @@
   <div class="m-user-wrap">
     <div padding class="clearfix">
       <div class="m-user-avatar" float-left>
-        <img src="../../assets/imgs/nav3.png" alt="">
+        <img src="{{userInfo?.headImg?'http://img.jfapps.com/'+userInfo?.headImg:'./assets/imgs/logo@2x.png'}}" alt="">
       </div>
       <div class="m-user-info" float-left>
-        <p>{{userInfo?.name||'未设置'}}</p>
+        <p>{{userInfo?.taobaoAccount||userInfo?.nickname||'未设置'}}</p>
         <!--{{userInfo.mobile}}  {{userInfo.mobile}}-->
-        <p class="user-type">消费者</p>
+        <p class="user-type">{{userInfo?.role==0?'消费者':'代理商'}}</p>
         <p>{{userInfo?.mobile}}</p>
       </div>
       <div class="m-user-set" float-right>
         <div class="m-user-message"><ion-icon ios="ios-mail-outline" md="md-mail"></ion-icon></div>
-        <span>头像昵称设置 ></span>
+        <span (click)="pushSetting()">头像昵称设置 ></span>
       </div>
     </div>
     <ion-grid no-padding>
       <ion-row class="m-user-item1" no-padding>
-        <ion-col no-padding>
-          <span>0.48</span>
+        <ion-col no-padding (click)="pushAgent()">
+          <span>{{myInfo?.proxyAmount}}</span>
           代理佣金
         </ion-col>
         <ion-col no-padding>
-          <span>0</span>
+          <span>{{myInfo?.consumeAmount}}</span>
           消费佣金
         </ion-col>
         <ion-col no-padding>
-          <span>39人</span>
+          <span>{{myInfo?.myTeam}}</span>
           我的团队
         </ion-col>
       </ion-row>
@@ -35,22 +35,22 @@
   <ion-grid no-padding>
     <ion-row class="m-user-item2">
       <ion-col no-padding (click)="pushShare()">
-        <span><img src="assets/imgs/nav1.png" alt=""></span>
+        <span><img src="assets/imgs/icon-user-share.png" alt=""></span>
         分享好友
       </ion-col>
-      <ion-col no-padding>
-        <span><img src="assets/imgs/nav2.png" alt=""></span>
+      <ion-col no-padding (click)="pushJoin()">
+        <span><img src="assets/imgs/icon-user-join.png" alt=""></span>
         加入代理
       </ion-col>
-      <ion-col no-padding>
-        <span><img src="assets/imgs/nav3.png" alt=""></span>
+      <ion-col no-padding (click)="pushRank()">
+        <span><img src="assets/imgs/icon-user-order.png" alt=""></span>
         排行榜
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-list>
-    <ion-item item-ios>
+  <ion-list no-lines class="user-list">
+    <ion-item item-ios (click)="pushService()">
       <ion-icon name="logo-reddit" item-start></ion-icon>
       客服中心
       <ion-icon name="arrow-forward" float-right></ion-icon>

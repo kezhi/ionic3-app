@@ -1,0 +1,1 @@
+{"version":3,"file":"ion-scrollable-tabs.js","sourceRoot":"","sources":["ion-scrollable-tabs.ts"],"names":[],"mappings":";;;;;;;AAAA,qBAA0B,eAAe,CAAC,CAAA;AAC1C;;;;;GAKG;AAMH;IACE,0BAA0B;IAC1B;IAAe,CAAC;IAPlB;QAAC,gBAAS,CAAC;YACT,QAAQ,EAAE,qBAAqB;YAC/B,WAAW,EAAE,0BAA0B;YACvC,SAAS,EAAE,EAAE;SACd,CAAC;kCAAA;IAKF,iCAAC;AAAD,CAAC,AAJD,IAIC;AAJY,kCAA0B,6BAItC,CAAA"}

@@ -15,10 +15,10 @@
 
 <ion-content padding>
   <div class="feedback">
-    <form [formGroup]="feedForm" (ngSubmit)="postFeedback(feedForm.value)">
+    <!--<form [formGroup]="feedForm" (ngSubmit)="postFeedback(feedForm.value)">-->
     <div class="feed-questions" *ngIf="feedType == 0">
       <p (click)="select()" class="clearfix">
-        <ion-input [(ngModel)]="feedback" placeholder="请选择" readonly formControlName="feedback"></ion-input>
+        <ion-input [(ngModel)]="feedback" placeholder="请选择" readonly></ion-input>
         <ion-icon *ngIf="drop==true" float-right ios="md-arrow-dropup"></ion-icon>
         <ion-icon *ngIf="drop==false" float-right ios="md-arrow-dropdown"></ion-icon>
       </p>
@@ -27,19 +27,19 @@
       </ul>
     </div>
     <div class="feedback-area">
-      <textarea placeholder="请输入反馈意见(最多只上传100字哦)" [(ngModel)]="feedbackText" formControlName="feedbackText"></textarea>
+      <textarea placeholder="请输入反馈意见(最多只上传100字哦)" [(ngModel)]="feedbackText"></textarea>
     </div>
     <div class="feed-add-img" (click)="addImg()">
       <ion-icon ios="ios-add" md="md-add"></ion-icon>
       <span>添加图片</span>
     </div>
-    </form>
+    <!--</form>-->
   </div>
 
 </ion-content>
 <ion-footer class="feedback-btn" (click)="postFeedback(feedbackText)">
   <ion-toolbar>
     <!--<ion-title>提交反馈</ion-title>-->
-    <button ion-button type="submit">提交反馈</button>
+    <button ion-button>提交反馈</button>
   </ion-toolbar>
 </ion-footer>

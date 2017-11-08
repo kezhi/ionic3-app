@@ -1,10 +1,23 @@
 <ion-header>
-  <ion-navbar padding class="home-search-bar">
-    <ion-input type="text" placeholder="请输入关键词搜索" (click)="pushSearch()"></ion-input>
+  <ion-navbar class="home-search-bar">
+    <ion-input type="text" placeholder="请输入关键词搜索" (click)="pushSearch()" readonly></ion-input>
   </ion-navbar>
+  <div class="m-toolbar-hidden">
+    <div class="m-toolbar-menu">
+      <ul class="tool-menu-segment">
+        <li (click)="select(0)" value="menu_0" [ngClass]="{'on':menuOn=='0'}">首页1</li>
+        <li (click)="select(menu)" value="menu_1" [ngClass]="{'on':menuOn==menu.index}" *ngFor="let menu of menuList">{{menu.name}}</li>
+      </ul>
+    </div>
+  </div>
 </ion-header>
 
 <ion-content>
+    <!--首页内容-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="fixed-content" *ngIf="menu_segment=='menu_0'">
   <div class="home-focus">
     <ion-slides autoplay="2000" loop="true" pager="true" (ionSlideDidChange)="slideChanged()" *ngIf = "bannerListLen >= 1">
       <ion-slide *ngFor="let banner of bannerList" (click)="pushAdv(banner)">
@@ -27,13 +40,31 @@
 
   <div class="product-list">
     <div class="product-list-title">精品推荐</div>
-    <!--<ul>
-      <li><img src="assets/imgs/cp1.jpg" alt=""><h3>精品牛仔裤</h3><p><span class="pull-right">月销754</span><span>券后价: <i> 54.8元</i></span></p></li>
-    </ul>-->
     <ion-products [products]="products" [goodsListStyle]="goodsListStyle"></ion-products>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </div>
+  </div>
+<!--首页end    -->
 
+
+  <!-- <ion-refresher (ionRefresh)="doRefreshList($event)">
+    &lt;!&ndash;<ion-refresher-content></ion-refresher-content>&ndash;&gt;
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="下拉刷新"
+      refreshingSpinner="circles"
+      refreshingText="正在刷新">
+    </ion-refresher-content>
+  </ion-refresher>-->
+  <div class="cat-list" *ngIf="menu_segment=='menu_1'">
+    <ion-products [catList]="catList" [goodsListStyle]="'indexList'"></ion-products>
+    <ion-infinite-scroll (ionInfinite)="doInfiniteList($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
 </ion-content>
+
+
+

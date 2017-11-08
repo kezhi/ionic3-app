@@ -1,0 +1,39 @@
+page-share-friends {
+  .bg-copy-code{
+    background: url('../../../assets/imgs/share-bg.png');
+    background-size: 100%;
+    padding: 4rem 0;
+  }
+  .m-copy-code{
+    width: 80%;
+    margin: 0 auto;
+    line-height: 3.2rem;
+    text-align: center;
+    background: rgba(255,255,255,.6);
+    border-radius: 3rem;
+    color: orangered;
+    font-size: 1.6rem;
+  }
+  .m-copy-code .button-ios{
+    background: orangered;
+    margin: 0;
+    height: 3.2rem;
+    border-radius: 0;
+    border-bottom-right-radius: 3rem;
+    border-top-right-radius: 3rem;
+  }
+  .m-button-group{
+    background: #fff;
+    padding: 1rem 2rem;
+    color: orangered;
+  }
+  .m-button-group .button-outline{
+    border:1px solid orangered;
+    border-radius: 5px;
+    color: orangered;
+    margin-bottom: 1.8rem;
+  }
+  .m-button-group .button-outline.activated{
+    background: none;
+  }
+}

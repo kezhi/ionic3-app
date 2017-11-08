@@ -41,8 +41,8 @@ export class TaoqianggouPage {
   getLiveIndex(){
      this.taoqianggouService.getLiveIndex().subscribe(
       result => {
-       let resultList = result.list;
-        resultList.forEach(function (index) {
+       let resultList = result;
+        resultList.forEach(function (index:any) {
           if(index.ifLiving == 0){
             index.ifLivingName = '已开抢';
           }else if(index.ifLiving == 1){
@@ -84,7 +84,7 @@ export class TaoqianggouPage {
     this.liveId = live.id;
     this.taoqianggouService.getLiveGoods(live).subscribe(
       result => {
-        this.products = result.list;
+        this.products = result;
       })
   }
 

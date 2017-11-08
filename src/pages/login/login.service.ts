@@ -1,6 +1,6 @@
 import { Injectable }    from '@angular/core';
 import { Headers,Http,Response }       from '@angular/http';
-import { NavController, NavParams} from 'ionic-angular';
+import { NavParams} from 'ionic-angular';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -26,19 +26,41 @@ export class LoginService {
 
 
   //验证码登录
-  RandCodeLogin(user): Observable<string[]> {
+  RandCodeLogin(user): Observable<any[]> {
     let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let formData = 'partnerId=888&mobile='+user.mobile+'&randCode='+user.randCode;
     console.log(user, formData);
     return this.http.post(APP_SERVE_URL+'/user/login.api',formData,{headers:headers})
-      .map(this.extractData)
+      .map(res=>{
+        let result;
+        if(res.json().result == "OK"){
+          result = {
+            status: 200,
+            user: res.json().user,
+            token: res.json().token
+          };
+        }else{
+          result = {
+            status: 0,
+            result: res.json().result,
+          };
+        }
+        return result;
+
+      })
       .catch(this.handleError);
   }
 
- private extractData(res: Response) {
-    console.log(res);
-    let body = res.json();
-    return body || { };
+  sendLoginCode(user): Observable<any[]>{
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let formData = 'partnerId=888&mobile='+user.mobile;
+    return this.http.post(APP_SERVE_URL+'/user/sendLoginCode.api',formData,{headers:headers})
+      .map(res=>{
+        console.log(res.json());
+        return res.json();
+
+      })
+      .catch(this.handleError);
   }
 
   private handleError (error: Response | any) {

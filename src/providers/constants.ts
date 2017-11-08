@@ -1,9 +1,11 @@
 /*----------------------------------------后台Api地址----------------------------------------*/
-export const APP_SERVE_URL = '/app'; //'http://read.jfapps.com/app';
+export const APP_SERVE_URL =  '/app'; //'http://laike.jfapps.com/app';jkj
+export const APP_IMG_URL =  'http://img.jfapps.com'; //图片服务器地址
 
 /*----------------------------------------文件服务器地址----------------------------------------*/
 export const FILE_SERVE_URL = '';//文件服务:测试环境
-/*----------------------------------------app版本升级服务地址----------------------------------------*/
+export const PARTNERID= '888';//partnerId
+/*----------------------------------------app 信息----------------------------------------*/
 export const APP_VERSION_SERVE_URL = '';//app版本升级服务;测试环境,查询app最新版本号,更新日志等信息.
 export const APP_VERSION = '1.0';//app版本升级服务;测试环境,查询app最新版本号,更新日志等信息.
 export const APP_NAME = '花生LK';//app版本升级服务;测试环境,查询app最新版本号,更新日志等信息.

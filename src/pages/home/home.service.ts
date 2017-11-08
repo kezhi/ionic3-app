@@ -24,7 +24,9 @@ export class HomeService {
 
   getGoodsListStyle(): Observable<string[]> {
     return this.http.get(APP_SERVE_URL+'/getModuleCategoryInfo.api?partnerId=888')
-      .map(this.extractData)
+      .map(res =>{
+        return res.json().list;
+      })
       .catch(this.handleError);
   }
 
@@ -34,16 +36,25 @@ export class HomeService {
       url = APP_SERVE_URL+'/goods/list2.api?partnerId=888&st='+sortObj.st;
     }else{
       url = APP_SERVE_URL+'/index.api?partnerId=888';
-    };
+    }
     return this.http.get(url)
-      .map(this.extractData)
+      .map(res =>{
+        let result = {
+          list: res.json().list,
+          bannerList: res.json().bannerList,
+          catList: res.json().catList
+        };
+        return result;
+      })
       .catch(this.handleError);
   }
-
- private extractData(res: Response) {
-    let body = res.json();
-    console.log(body);
-    return body || { };
+  getCatList(catObj): Observable<string[]> {
+    let url = APP_SERVE_URL+'/goods/list2.api?partnerId=888&catId='+catObj.id+'&st='+catObj.st;
+    return this.http.get(url)
+      .map(res =>{
+        return res.json().list;
+      })
+      .catch(this.handleError);
   }
 
   private handleError (error: Response | any) {

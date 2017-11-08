@@ -1,4 +1,10 @@
 page-home {
+  .home-search-bar{
+    padding: 16px 16px 10px 16px;
+  }
+  .toolbar-background-ios{
+    background: none;
+  }
   .home-focus{
     height: 117px;
   }
@@ -90,11 +96,59 @@ page-home {
   }
   .text-input-ios{
     background: #eee;
-    border-radius: 1rem;
+    border-radius: 14px;
     padding: 6px 10px;
     margin: 0;
   }
   .mtblank{
     margin-top: 6px;
+  }
+
+
+  ul{
+    padding:0;
+    margin:0;
+  }
+  li{
+    list-style: none;
+  }
+  .m-toolbar-hidden{
+    height:34px;
+    overflow:hidden;
+  }
+  .m-toolbar-menu{
+    height:44px;
+    overflow-y:hidden;
+    overflow-x:scroll;
+    -webkit-overflow-scrolling: touch
+  }
+  .tool-menu-segment:after{
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+  }
+  .tool-menu-segment{
+    padding:0;
+    margin:0;
+    white-space: nowrap;
+  }
+  .tool-menu-segment li{
+    font-size: 1.6rem;
+    margin: 0 10px;
+    text-align:center;
+    height: 32px;
+    line-height: 32px;
+    display:inline-block;
+  }
+  .fixed-content{
+    bottom:0 !important;
+  }
+  .fixed-content .scroll-content{
+    margin-bottom: 0 !important;
+  }
+  .tool-menu-segment li.on{
+    border-bottom: 2px solid orangered;
   }
 }

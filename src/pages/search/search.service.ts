@@ -22,23 +22,19 @@ export class SearchService {
   }
 
   getGoodsList(obj): Observable<string[]> {
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let formData = new FormData();
-    formData.append('key', obj.keyword);
-    return this.http.post(APP_SERVE_URL+'/goods/list2.api?partnerId=888&ifCoupon=1',formData,{headers:headers})
-      .map(this.extractData)
+    let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    return this.http.post(APP_SERVE_URL+'/goods/list2.api?partnerId=888&ifCoupon=1','key='+obj.key, {headers:headers})
+      .map(res=> {
+        return res.json().list;
+      })
       .catch(this.handleError);
   }
   getHotWords(): Observable<string[]> {
     return this.http.get(APP_SERVE_URL+'/getHotWords.api?partnerId=888')
-      .map(this.extractData)
+      .map(res=> {
+        return res.json().list;
+      })
       .catch(this.handleError);
-  }
-
- private extractData(res: Response) {
-    let body = res.json();
-    console.log(body);
-    return body || { };
   }
 
   private handleError (error: Response | any) {

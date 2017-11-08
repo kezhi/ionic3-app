@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import {IonicStorageModule} from "@ionic/storage";
 
 import { UserPage } from '../pages/user/user';
-
 import { CategoryPage } from '../pages/category/category';
 import { CategoryService } from '../pages/category/category.service';
 import { HomePage } from '../pages/home/home';
@@ -20,6 +19,7 @@ import { ComponentsModule } from '../components/components.module';
 // import {SuperTabsModule} from "ionic2-super-tabs";
 import { Camera } from '@ionic-native/camera';
 import { NativeService } from '../providers/native-service';
+import { GlobalData } from '../providers/global-data';
 
 @NgModule({
   declarations: [
@@ -54,6 +54,7 @@ import { NativeService } from '../providers/native-service';
     CategoryService,
     HomeService,
     NativeService,
+    GlobalData,
     Camera
   ]
 })

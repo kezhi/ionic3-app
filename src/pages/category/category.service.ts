@@ -24,14 +24,10 @@ export class CategoryService {
 
   getCategory(): Observable<string[]> {
     return this.http.get(APP_SERVE_URL+'/goods/categoryList.api')
-      .map(this.extractData)
+      .map(res => {
+        return res.json().list;
+      })
       .catch(this.handleError);
-  }
-
- private extractData(res: Response) {
-    let body = res.json();
-    console.log(body);
-    return body || { };
   }
 
   private handleError (error: Response | any) {

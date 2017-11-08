@@ -8,23 +8,39 @@
   <div class="login-bg">
   <div class="login-logo"><img src="../../assets/imgs/logo@2x.png" alt=""></div>
   <div class="login-wrap">
-    <form [formGroup]="loginForm" (ngSubmit)="goLogin(loginForm.value)">
+   <!-- <form [formGroup]="loginForm" (ngSubmit)="goLogin(loginForm.value)">
     <ion-list no-lines>
       <ion-item>
         <ion-label fixed><ion-icon name="phone-portrait"></ion-icon></ion-label>
-        <ion-input type="text" formControlName="mobile" clearInput></ion-input>
+        <ion-input type="text" formControlName="mobile" clearInput ([ngModel])="user.mobile"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label fixed><ion-icon ios="ios-lock" md="md-lock"></ion-icon></ion-label>
         <ion-input type="password" formControlName="randCode" clearInput></ion-input>
-        <button item-end class="login-input-inner-btn">获取验证码</button>
+        <button item-end class="login-input-inner-btn" (click)="getCode(user)">获取验证码</button>
       </ion-item>
       <ion-item class="login-btn">
         <button ion-button block type="submit" [disabled]="!loginForm.valid||submitted">登　录</button>
       </ion-item>
     </ion-list>
-    </form>
+    </form>-->
+
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label fixed><ion-icon name="phone-portrait"></ion-icon></ion-label>
+          <ion-input type="text" [(ngModel)]="mobile"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed><ion-icon ios="ios-lock" md="md-lock"></ion-icon></ion-label>
+          <ion-input type="password" [(ngModel)]="randCode"></ion-input>
+          <button item-end class="login-input-inner-btn" (click)="getCode(mobile)">获取验证码</button>
+        </ion-item>
+        <ion-item class="login-btn">
+          <button ion-button block (click)="goLogin(mobile,randCode)">登　录</button>
+        </ion-item>
+      </ion-list>
   </div>
   <ion-footer class="login-method">
     <p>快捷登录</p>

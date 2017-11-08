@@ -41,12 +41,16 @@ $colors: (
   dark:       #222,
   orange:     rgb(255, 104, 19),
 );
-.content-ios{
+.content-ios,.content-md{
   background: #efefef !important;
 }
 ion-header{
   background: #fff !important;
 }
+.text-orange{
+  color: orangered;
+}
+
 
 // App iOS Variables
 // --------------------------------------------------
