@@ -2,7 +2,7 @@
   <div class="m-user-wrap">
     <div padding class="clearfix">
       <div class="m-user-avatar" float-left>
-        <img src="{{userInfo?.headImg?'http://img.jfapps.com/'+userInfo?.headImg:'./assets/imgs/logo@2x.png'}}" alt="">
+        <img src="{{userInfo?.headImg?userInfo?.headImg:'./assets/imgs/logo@2x.png'}}" alt="">
       </div>
       <div class="m-user-info" float-left>
         <p>{{userInfo?.taobaoAccount||userInfo?.nickname||'未设置'}}</p>
@@ -17,15 +17,15 @@
     </div>
     <ion-grid no-padding>
       <ion-row class="m-user-item1" no-padding>
-        <ion-col no-padding (click)="pushAgent()">
+        <ion-col no-padding (click)="pushAgent(myInfo?.proxyAmount)">
           <span>{{myInfo?.proxyAmount}}</span>
           代理佣金
         </ion-col>
-        <ion-col no-padding>
+        <ion-col no-padding (click)="pushConsumeAmount()">
           <span>{{myInfo?.consumeAmount}}</span>
           消费佣金
         </ion-col>
-        <ion-col no-padding>
+        <ion-col no-padding (click)="pushMyGroup()">
           <span>{{myInfo?.myTeam}}</span>
           我的团队
         </ion-col>

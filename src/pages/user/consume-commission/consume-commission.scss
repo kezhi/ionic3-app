@@ -1,0 +1,44 @@
+page-consume-commission {
+  .commission .item{
+    background: orangered;
+  }
+  .commission button{
+    border-radius: 10rem;
+    border: 1px solid #fff;
+    padding: 0.5rem 1.6rem;
+    background: transparent;
+    color: #fff;
+    font-size: 1.4rem;
+  }
+  .commission h3,.commission p{
+    color: #fff;
+  }
+  .commission h3{
+    font-size: 1.6rem;
+  }
+  .commission-month span{
+    font-size: 1.6rem;
+    padding-top: 0.3rem;
+    display: block;
+  }
+  .order-des-line{
+    border-top: 0.5px solid #eee !important;
+    border-bottom: 0.5px solid #eee !important;
+    min-height: 4rem;
+  }
+  .order-des-line.item > ion-icon{
+    min-height: 2.4rem;
+    color: #4D82E9;
+  }
+  .commission-day .segment-button{
+    border-radius: 0;
+    border:none;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  .commission-day .segment-button.segment-activated {
+    background: none;
+    color: orangered;
+    font-size: 1.6rem;
+  }
+}

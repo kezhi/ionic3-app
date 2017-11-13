@@ -1,0 +1,39 @@
+page-my-group {
+  .my-group-title .segment-button{
+    border-radius: 0;
+    border:none;
+    font-size: 1.6rem;
+    color: #333;
+  }
+  .my-group-title .segment-button.segment-activated {
+    background: none;
+    color: orangered;
+  }
+  .my-group-title .segment-button.segment-activated span{
+    border-bottom: 2px solid orangered;
+    line-height: 2.8rem;
+    padding: 0 10px;
+    display: inline-block;
+  }
+  .role-tip{
+    border: 1px solid orangered;
+    border-radius: 10rem;
+    color: orangered;
+    font-size: 1rem;
+    padding: 0 5px;
+    display: inline-block;
+  }
+  .my-group-footer .toolbar-title{
+    font-size: 1.4rem;
+    color: #333;
+  }
+  .my-group-footer .toolbar{
+    min-height: 3rem;
+  }
+  .my-group-con{
+    margin-bottom: 3rem !important;
+  }
+  .f12{
+    font-size: 1.2rem;
+  }
+}

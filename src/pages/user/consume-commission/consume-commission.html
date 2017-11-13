@@ -1,0 +1,57 @@
+<!--
+  Generated template for the ConsumeCommissionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>消费佣金</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-white">
+<div class="commission">
+  <ion-item no-lines><p>账户余额</p> <h3>{{consumeCommission?.wallet}}</h3>  <button item-end outline (click)="pushGetMoney(consumeCommission.wallet)">{{consumeCommission?.wallet>0?'提现':'去赚钱'}}</button></ion-item>
+</div>
+  <ion-grid class="commission-month">
+    <ion-row text-center>
+      <ion-col *ngFor="let statsIncomeList of consumeCommission?.statsList[0].statsIncomeList">
+        {{statsIncomeList.title}}
+        <br/>
+        <span>{{statsIncomeList.value}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-item no-lines class="order-des-line" (click)="pushOrderDetail()">
+    <ion-icon name="list-box" item-start></ion-icon> 订单明细
+  </button>
+  <div class="commission-day">
+  <ion-segment [(ngModel)]="value">
+    <!--<ion-segment-button *ngFor="let statsNumList of consumeCommission?.statsList[0].statsNumList" value="{{statsNumList.value}}" (click)="select(statsNumList.value)">
+      {{statsNumList.title}}
+    </ion-segment-button>-->
+    <ion-segment-button value="0">
+      今日
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      昨日
+    </ion-segment-button>
+  </ion-segment>
+
+    <div [ngSwitch]="value" *ngFor="let statsNumList of consumeCommission?.statsList[0].statsNumList">
+    <ion-grid text-center *ngSwitchCase="statsNumList.value">
+      <ion-row>
+        <ion-col *ngFor="let statsList of statsNumList.statsList">
+          {{statsList?.title}}
+          <br/>
+          <span>{{statsList?.value}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
+  </div>
+</ion-content>

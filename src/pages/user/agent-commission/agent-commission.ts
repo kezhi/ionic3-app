@@ -14,12 +14,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'agent-commission.html',
 })
 export class AgentCommissionPage {
-
+  balance: string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.balance = this.navParams.get('balance');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AgentCommissionPage');
+    console.log('ionViewDidLoad AgentCommissionPage',this.balance);
+  }
+
+  pushMyBill(){
+    this.navCtrl.push('MyBillPage');
   }
 
 }

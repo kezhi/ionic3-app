@@ -16,6 +16,7 @@ export class UserPage {
   };
   token: string;
   myInfo: any;
+  balance: string;
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
               private storage: Storage,
@@ -67,8 +68,17 @@ export class UserPage {
       })
   }
   //去代理佣金
-  pushAgent(){
-    this.navCtrl.push('AgentCommissionPage');
+  pushAgent(balance){
+    console.log(balance);
+    this.navCtrl.push('AgentCommissionPage',{balance: balance});
+  }
+  //去消费佣金
+  pushConsumeAmount(){
+    this.navCtrl.push('ConsumeCommissionPage');
+  }
+  //去我的团队
+  pushMyGroup(){
+    this.navCtrl.push('MyGroupPage');
   }
   //去分享好友
   pushShare(){

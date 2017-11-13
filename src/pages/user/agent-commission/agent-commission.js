@@ -17,9 +17,13 @@ var AgentCommissionPage = (function () {
     function AgentCommissionPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.balance = this.navParams.get('balance');
     }
     AgentCommissionPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AgentCommissionPage');
+        console.log('ionViewDidLoad AgentCommissionPage', this.balance);
+    };
+    AgentCommissionPage.prototype.pushMyBill = function () {
+        this.navCtrl.push('MyBillPage');
     };
     AgentCommissionPage = __decorate([
         ionic_angular_1.IonicPage(),

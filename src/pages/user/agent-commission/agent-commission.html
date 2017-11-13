@@ -18,12 +18,12 @@
     <img src="../../../assets/imgs/leijijiangli@2x.png" alt="">
     <div class="my-balance">
       我的余额
-      <span class="agent-money">0</span>
+      <span class="agent-money">{{balance}}</span>
     </div>
   </div>
   <div class="m-button-group">
     <div><button ion-button full color="danger">提现</button></div>
     <div><button ion-button full outline>代理商推广奖励明细</button></div>
-    <div><button ion-button full outline (click)="creatShare()">我的账单</button></div>
+    <div><button ion-button full outline (click)="pushMyBill()">我的账单</button></div>
   </div>
 </ion-content>

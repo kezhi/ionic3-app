@@ -55,8 +55,17 @@ var UserPage = (function () {
         });
     };
     //去代理佣金
-    UserPage.prototype.pushAgent = function () {
-        this.navCtrl.push('AgentCommissionPage');
+    UserPage.prototype.pushAgent = function (balance) {
+        console.log(balance);
+        this.navCtrl.push('AgentCommissionPage', { balance: balance });
+    };
+    //去消费佣金
+    UserPage.prototype.pushConsumeAmount = function () {
+        this.navCtrl.push('ConsumeCommissionPage');
+    };
+    //去我的团队
+    UserPage.prototype.pushMyGroup = function () {
+        this.navCtrl.push('MyGroupPage');
     };
     //去分享好友
     UserPage.prototype.pushShare = function () {
